@@ -3,12 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Platform</title>
+
+    <title>Telegram Platform - Verification</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background: #0f1115;
+            color: white;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 420px;
+            padding: 35px 25px;
+            text-align: center;
+            background: #181b22;
+            border-radius: 18px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 27px;
+        }
+
+        p {
+            color: #aeb4c0;
+            line-height: 1.6;
+        }
+
+        .verify-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            background: #229ed9;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .verify-btn:hover {
+            opacity: 0.9;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777f8d;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Telegram Platform</h1>
-    <p>Verification website is working.</p>
+    <div class="card">
+
+        <div class="icon">🔐</div>
+
+        <h1>Verification Required</h1>
+
+        <p>
+            Please complete verification to continue
+            accessing the available content.
+        </p>
+
+        <button class="verify-btn" onclick="startVerification()">
+            Verify Now
+        </button>
+
+        <div class="note">
+            Verification access is temporary.
+        </div>
+
+    </div>
+
+    <script>
+        function startVerification() {
+            alert("Verification step started.");
+        }
+    </script>
 
 </body>
 </html>
