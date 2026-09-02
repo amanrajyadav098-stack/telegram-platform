@@ -6,6 +6,7 @@ from pydantic import BaseModel
 
 from backend.verification import create_verification, has_valid_access
 
+
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -23,6 +24,11 @@ def home():
         "status": "online",
         "message": "Telegram Platform API is running"
     }
+
+
+@app.head("/")
+def head_home():
+    return
 
 
 @app.post("/verification/create")
