@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Verification</title>
 
     <style>
@@ -23,29 +27,36 @@
 
         .card {
             width: 90%;
-            max-width: 420px;
-            padding: 32px 24px;
+            max-width: 430px;
+            padding: 34px 25px;
             text-align: center;
             background: #181b22;
             border-radius: 18px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
         }
 
         h1 {
-            margin: 0 0 12px;
+            margin: 0 0 14px;
+            font-size: 28px;
         }
 
         p {
             color: #adb5bd;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         button {
             border: 0;
             padding: 14px 28px;
-            margin-top: 18px;
+            margin-top: 20px;
             border-radius: 10px;
             background: #229ed9;
-            color: #fff;
+            color: #ffffff;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
@@ -58,7 +69,8 @@
 
         #status {
             margin-top: 20px;
-            min-height: 24px;
+            min-height: 25px;
+            line-height: 1.5;
         }
 
         .success {
@@ -68,81 +80,200 @@
         .error {
             color: #ff6b6b;
         }
+
+        .continue-btn {
+            display: none;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
 
 <div class="card">
-    <div style="font-size: 52px;">🔐</div>
 
-    <h1>Verification Required</h1>
+    <div class="icon">🔐</div>
 
-    <p>
-        Complete verification to activate your 20-hour access.
+    <h1 id="title">
+        Verification Required
+    </h1>
+
+    <p id="description">
+        Complete verification to activate your
+        20-hour access.
     </p>
 
-    <button id="verifyButton" onclick="completeVerification()">
+    <button
+        id="verifyButton"
+        onclick="completeVerification()"
+    >
         Verify Now
     </button>
 
+    <a
+        id="continueButton"
+        class="continue-btn"
+        href="#"
+    >
+        <button type="button">
+            🚀 Continue to Telegram
+        </button>
+    </a>
+
     <div id="status"></div>
+
 </div>
 
+
 <script>
-    const API_URL = "https://telegram-platform.onrender.com";
+
+    const API_URL =
+        "https://telegram-platform.onrender.com";
+
+    const BOT_USERNAME =
+        "freemoviesHD28_bot";
+
 
     async function completeVerification() {
-        const button = document.getElementById("verifyButton");
-        const status = document.getElementById("status");
 
-        const params = new URLSearchParams(window.location.search);
-        const token = params.get("token");
+        const verifyButton =
+            document.getElementById("verifyButton");
+
+        const continueButton =
+            document.getElementById("continueButton");
+
+        const title =
+            document.getElementById("title");
+
+        const description =
+            document.getElementById("description");
+
+        const status =
+            document.getElementById("status");
+
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const token =
+            params.get("token");
+
+        const videoId =
+            params.get("video_id");
+
 
         if (!token) {
+
             status.className = "error";
-            status.textContent = "Invalid verification link.";
-            button.disabled = true;
+
+            status.textContent =
+                "❌ Invalid verification link.";
+
+            verifyButton.disabled = true;
+
             return;
         }
 
-        button.disabled = true;
+
+        verifyButton.disabled = true;
+
         status.className = "";
-        status.textContent = "Verifying...";
+
+        status.textContent =
+            "Verifying...";
+
 
         try {
-            const response = await fetch(
-                `${API_URL}/verification/complete`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify({
-                        token: token
-                    })
-                }
-            );
 
-            const data = await response.json();
+            const response =
+                await fetch(
+                    `${API_URL}/verification/complete`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            token: token
+                        })
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
 
             if (!response.ok) {
+
                 throw new Error(
-                    data.detail || "Verification failed."
+                    data.detail ||
+                    "Verification failed."
                 );
             }
 
-            status.className = "success";
-            status.textContent =
-                "✅ Verification successful! Your access is active for 20 hours.";
 
-            button.textContent = "✅ Verified";
+            title.textContent =
+                "✅ Verification Complete";
+
+            description.textContent =
+                "Your access is active for 20 hours.";
+
+
+            status.className =
+                "success";
+
+            status.textContent =
+                "✅ Verification successful!";
+
+
+            verifyButton.style.display =
+                "none";
+
+
+            /*
+             * Return user to Hakuma with
+             * the selected video/version.
+             */
+
+            if (videoId) {
+
+                continueButton.href =
+                    `https://t.me/${BOT_USERNAME}` +
+                    `?start=video_${videoId}`;
+
+                continueButton.style.display =
+                    "inline-block";
+
+            } else {
+
+                continueButton.href =
+                    `https://t.me/${BOT_USERNAME}`;
+
+                continueButton.style.display =
+                    "inline-block";
+            }
+
         } catch (error) {
-            status.className = "error";
-            status.textContent = "❌ " + error.message;
-            button.disabled = false;
+
+            status.className =
+                "error";
+
+            status.textContent =
+                "❌ " + error.message;
+
+            verifyButton.disabled =
+                false;
         }
+
     }
+
 </script>
 
 </body>
