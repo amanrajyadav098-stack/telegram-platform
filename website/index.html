@@ -2,13 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Verification</title>
+    <title>Secure Verification</title>
 
     <style>
         * {
@@ -21,44 +17,90 @@
 
         body {
             margin: 0;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            background: #0f1115;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #182333 0%,
+                    #0c1016 45%,
+                    #090c11 100%
+                );
             color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        .container {
+        .page {
             width: 92%;
             max-width: 760px;
             margin: 0 auto;
-            padding: 25px 0 60px;
+            padding: 30px 0 70px;
         }
 
-        .header {
+        .brand {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
-        .header-icon {
-            font-size: 50px;
-            margin-bottom: 10px;
+        .shield {
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            background: linear-gradient(
+                145deg,
+                #24384e,
+                #151d28
+            );
+
+            font-size: 34px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.35);
         }
 
-        .header h1 {
+        .brand h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 30px;
         }
 
-        .header p {
-            color: #adb5bd;
+        .brand p {
+            margin: 10px auto 0;
+            max-width: 540px;
+
+            color: #9da8b7;
             line-height: 1.6;
         }
 
-        .progress {
+        .progress-card {
+            padding: 18px;
+            margin-bottom: 20px;
+
+            background: rgba(24, 30, 39, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 12px;
+
+            color: #a8b2bf;
+            font-size: 14px;
+        }
+
+        .progress-track {
             width: 100%;
-            height: 8px;
-            margin-bottom: 24px;
-            background: #292e37;
+            height: 7px;
+
+            background: #2a323e;
             border-radius: 20px;
             overflow: hidden;
         }
@@ -66,8 +108,14 @@
         .progress-bar {
             width: 33.33%;
             height: 100%;
-            background: #229ed9;
-            transition: width 0.3s ease;
+
+            background: linear-gradient(
+                90deg,
+                #239ed9,
+                #59b9eb
+            );
+
+            transition: width 0.35s ease;
         }
 
         .step {
@@ -79,166 +127,327 @@
         }
 
         .card {
-            background: #181c23;
-            border-radius: 18px;
-            padding: 24px;
+            overflow: hidden;
+
+            background: rgba(24, 30, 39, 0.97);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+
+            border-radius: 22px;
+
             box-shadow:
-                0 15px 45px rgba(0, 0, 0, 0.35);
+                0 22px 60px rgba(0, 0, 0, 0.35);
         }
 
-        .step-title {
+        .card-header {
+            padding: 24px 24px 18px;
+
+            border-bottom: 1px solid
+                rgba(255, 255, 255, 0.06);
+        }
+
+        .step-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 7px 11px;
+            margin-bottom: 13px;
+
+            background: #202a36;
+            color: #8ecdf0;
+
+            border-radius: 999px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+        .card-header h2 {
             margin: 0;
-            text-align: center;
             font-size: 25px;
         }
 
-        .step-description {
-            text-align: center;
-            color: #adb5bd;
+        .card-header p {
+            margin: 9px 0 0;
+
+            color: #9da8b7;
             line-height: 1.6;
         }
 
+        .card-body {
+            padding: 24px;
+        }
+
         .ad-label {
-            margin: 24px 0 10px;
+            margin-bottom: 10px;
+
             text-align: center;
-            color: #737c89;
-            font-size: 12px;
+
+            color: #697585;
+            font-size: 11px;
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .native-ad {
-            width: 100%;
             min-height: 170px;
-            margin: 0 auto 20px;
-            overflow: hidden;
-            border-radius: 12px;
-        }
+            margin-bottom: 22px;
 
-        .banner-area {
-            width: 100%;
-            min-height: 120px;
-            margin: 0 auto 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+
             overflow: hidden;
+
+            border-radius: 14px;
+            background: #10151c;
         }
 
-        .mobile-banner {
-            display: block;
+        .banner-zone {
+            min-height: 120px;
+            margin-bottom: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            border-radius: 14px;
+            background: #10151c;
         }
 
         .desktop-banner {
             display: none;
         }
 
-        .scroll-area {
-            min-height: 380px;
-            margin-top: 20px;
-            padding: 24px;
-            border-radius: 14px;
-            background: #11141a;
+        .offer-box {
+            margin: 20px 0;
+
+            padding: 17px;
+
+            background: #111821;
+            border: 1px solid #263240;
+
+            border-radius: 15px;
+        }
+
+        .offer-title {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .offer-text {
+            margin-top: 6px;
+
+            color: #8995a4;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .offer-button {
+            display: block;
+
+            margin-top: 13px;
+            padding: 12px 16px;
+
+            text-align: center;
+            text-decoration: none;
+
+            border-radius: 10px;
+
+            background: #202d3c;
+            color: #d8efff;
+
+            font-weight: 700;
+        }
+
+        .scroll-zone {
+            min-height: 340px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
+            padding: 25px;
+            margin-top: 18px;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #10151c,
+                    #0d1218
+                );
+
+            color: #596675;
+
             text-align: center;
             line-height: 1.7;
-            color: #656e7b;
+        }
+
+        .requirement {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 17px;
+            padding: 13px 15px;
+
+            border-radius: 12px;
+
+            background: #121820;
+            color: #9ea9b7;
+
+            font-size: 13px;
+        }
+
+        .requirement .dot {
+            width: 9px;
+            height: 9px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+            background: #556170;
+        }
+
+        .requirement.done {
+            color: #55d58d;
+        }
+
+        .requirement.done .dot {
+            background: #55d58d;
         }
 
         .timer {
-            min-height: 24px;
-            margin: 18px 0;
+            min-height: 25px;
+
+            margin: 17px 0;
+
             text-align: center;
-            color: #adb5bd;
+
+            color: #9faab8;
+            font-size: 14px;
         }
 
-        .timer.success {
-            color: #45d483;
+        .timer.done {
+            color: #55d58d;
         }
 
-        .button {
+        .primary-button {
             width: 100%;
-            padding: 15px 20px;
+
+            padding: 15px 18px;
+
             border: 0;
-            border-radius: 11px;
-            background: #229ed9;
-            color: #ffffff;
+            border-radius: 12px;
+
+            background: linear-gradient(
+                135deg,
+                #269fd8,
+                #3288cf
+            );
+
+            color: white;
+
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 700;
+
             cursor: pointer;
+
+            box-shadow:
+                0 9px 25px rgba(35, 158, 217, 0.18);
         }
 
-        .button:disabled {
-            opacity: 0.45;
+        .primary-button:disabled {
+            opacity: 0.38;
             cursor: not-allowed;
+            box-shadow: none;
         }
 
         .confirmation {
             display: flex;
-            align-items: center;
             gap: 12px;
-            margin: 24px 0;
+            align-items: flex-start;
+
+            margin: 20px 0;
             padding: 16px;
-            border-radius: 12px;
-            background: #11141a;
+
+            background: #11171f;
+            border-radius: 14px;
         }
 
         .confirmation input {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
+            width: 19px;
+            height: 19px;
+
+            margin-top: 2px;
         }
 
         .confirmation label {
-            color: #d9dde4;
+            color: #c0c8d2;
             line-height: 1.5;
+            font-size: 14px;
         }
 
         .status {
-            min-height: 24px;
-            margin-top: 18px;
+            min-height: 25px;
+
+            margin-top: 17px;
+
             text-align: center;
+
+            font-size: 14px;
             line-height: 1.5;
         }
 
         .success {
-            color: #45d483;
+            color: #55d58d;
         }
 
         .error {
-            color: #ff6b6b;
+            color: #ff7070;
         }
 
-        .telegram-button {
+        .telegram-return {
             display: none;
+
+            margin-top: 13px;
+
             text-decoration: none;
-            margin-top: 14px;
         }
 
-        .small {
-            margin-top: 18px;
+        .footer {
+            margin-top: 22px;
+
             text-align: center;
-            color: #69717e;
+
+            color: #5f6a78;
             font-size: 12px;
+            line-height: 1.6;
         }
 
         @media (min-width: 700px) {
 
-            .container {
-                max-width: 760px;
-            }
-
-            .mobile-banner {
-                display: none;
+            .page {
+                max-width: 820px;
             }
 
             .desktop-banner {
                 display: flex;
             }
 
-            .scroll-area {
+            .mobile-banner {
+                display: none;
+            }
+
+            .scroll-zone {
                 min-height: 430px;
             }
         }
@@ -247,29 +456,53 @@
 
 <body>
 
-<div class="container">
+<div class="page">
 
-    <!-- HEADER -->
+    <!-- BRAND -->
 
-    <header class="header">
-        <div class="header-icon">🔐</div>
+    <div class="brand">
 
-        <h1>Verification Required</h1>
+        <div class="shield">
+            🔐
+        </div>
+
+        <h1>
+            Secure Verification
+        </h1>
 
         <p>
-            Complete all verification steps to activate
+            Complete the required steps to activate
             your 20-hour access.
         </p>
-    </header>
+
+    </div>
 
 
     <!-- PROGRESS -->
 
-    <div class="progress">
-        <div
-            id="progressBar"
-            class="progress-bar"
-        ></div>
+    <div class="progress-card">
+
+        <div class="progress-top">
+
+            <span id="progressText">
+                Step 1 of 3
+            </span>
+
+            <span id="progressPercent">
+                33%
+            </span>
+
+        </div>
+
+        <div class="progress-track">
+
+            <div
+                id="progressBar"
+                class="progress-bar"
+            ></div>
+
+        </div>
+
     </div>
 
 
@@ -281,65 +514,90 @@
         id="step1"
         class="step active"
     >
+
         <div class="card">
 
-            <h2 class="step-title">
-                Step 1
-            </h2>
+            <div class="card-header">
 
-            <p class="step-description">
-                Scroll to the bottom and complete the
-                waiting period.
-            </p>
+                <div class="step-badge">
+                    ● STEP 1
+                </div>
 
+                <h2>
+                    Start Verification
+                </h2>
 
-            <!-- NATIVE BANNER -->
+                <p>
+                    Scroll through this step and complete
+                    the short waiting period.
+                </p>
 
-            <div class="ad-label">
-                Advertisement
             </div>
 
-            <div class="native-ad">
 
-                <script
-                    async="async"
-                    data-cfasync="false"
-                    src="https://pl31159836.profitableratecpmnetwork.com/29fcfc8fdc378dd5b0d6c27eee931468/invoke.js"
-                ></script>
+            <div class="card-body">
+
+                <div class="ad-label">
+                    Advertisement
+                </div>
+
+
+                <!-- NATIVE BANNER -->
+
+                <div class="native-ad">
+
+                    <script
+                        async="async"
+                        data-cfasync="false"
+                        src="https://pl31159836.profitableratecpmnetwork.com/29fcfc8fdc378dd5b0d6c27eee931468/invoke.js"
+                    ></script>
+
+                    <div
+                        id="container-29fcfc8fdc378dd5b0d6c27eee931468"
+                    ></div>
+
+                </div>
+
+
+                <div class="scroll-zone">
+                    Scroll down to the bottom of
+                    this section.
+                </div>
+
 
                 <div
-                    id="container-29fcfc8fdc378dd5b0d6c27eee931468"
-                ></div>
+                    id="requirement1"
+                    class="requirement"
+                >
+                    <span class="dot"></span>
+
+                    <span>
+                        Reach the bottom and wait 10 seconds.
+                    </span>
+                </div>
+
+
+                <div
+                    id="timer1"
+                    class="timer"
+                >
+                    Waiting for you to reach the bottom...
+                </div>
+
+
+                <button
+                    id="continue1"
+                    class="primary-button"
+                    disabled
+                    onclick="goToStep(2)"
+                >
+                    Continue →
+                </button>
 
             </div>
-
-
-            <!-- SCROLL AREA -->
-
-            <div class="scroll-area">
-                Scroll to the bottom of this section
-                to unlock Continue.
-            </div>
-
-
-            <div
-                id="timer1"
-                class="timer"
-            >
-                Scroll to the bottom to start.
-            </div>
-
-
-            <button
-                id="continue1"
-                class="button"
-                disabled
-                onclick="goToStep(2)"
-            >
-                Continue
-            </button>
 
         </div>
+
     </section>
 
 
@@ -351,55 +609,107 @@
         id="step2"
         class="step"
     >
+
         <div class="card">
 
-            <h2 class="step-title">
-                Step 2
-            </h2>
+            <div class="card-header">
 
-            <p class="step-description">
-                Continue after reaching the bottom
-                and waiting 10 seconds.
-            </p>
+                <div class="step-badge">
+                    ● STEP 2
+                </div>
 
+                <h2>
+                    Continue Verification
+                </h2>
 
-            <!-- SOCIAL BAR -->
+                <p>
+                    Complete this step to move to
+                    the final verification.
+                </p>
 
-            <div class="ad-label">
-                Advertisement
-            </div>
-
-            <script
-                src="https://pl31159835.profitableratecpmnetwork.com/c0/12/86/c01286f12a5d61b86a2a98e4f21e0c62.js"
-            ></script>
-
-
-            <!-- SCROLL AREA -->
-
-            <div class="scroll-area">
-                Scroll to the bottom of this section
-                to unlock Continue.
             </div>
 
 
-            <div
-                id="timer2"
-                class="timer"
-            >
-                Please wait...
+            <div class="card-body">
+
+                <div class="ad-label">
+                    Advertisement
+                </div>
+
+
+                <!-- SOCIAL BAR -->
+
+                <script
+                    src="https://pl31159835.profitableratecpmnetwork.com/c0/12/86/c01286f12a5d61b86a2a98e4f21e0c62.js"
+                ></script>
+
+
+                <!-- SMARTLINK -->
+
+                <div class="offer-box">
+
+                    <div class="offer-title">
+                        Sponsored Offer
+                    </div>
+
+                    <div class="offer-text">
+                        Optional sponsored content.
+                        Opening it is not required
+                        to complete verification.
+                    </div>
+
+                    <a
+                        id="smartlinkButton"
+                        class="offer-button"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        View Sponsored Offer
+                    </a>
+
+                </div>
+
+
+                <div class="scroll-zone">
+                    Scroll down to the bottom of
+                    this section.
+                </div>
+
+
+                <div
+                    id="requirement2"
+                    class="requirement"
+                >
+                    <span class="dot"></span>
+
+                    <span>
+                        Reach the bottom and wait 10 seconds.
+                    </span>
+                </div>
+
+
+                <div
+                    id="timer2"
+                    class="timer"
+                >
+                    Continue to the bottom...
+                </div>
+
+
+                <button
+                    id="continue2"
+                    class="primary-button"
+                    disabled
+                    onclick="goToStep(3)"
+                >
+                    Continue →
+                </button>
+
             </div>
-
-
-            <button
-                id="continue2"
-                class="button"
-                disabled
-                onclick="goToStep(3)"
-            >
-                Continue
-            </button>
 
         </div>
+
     </section>
 
 
@@ -411,134 +721,150 @@
         id="step3"
         class="step"
     >
+
         <div class="card">
 
-            <h2 class="step-title">
-                Final Verification
-            </h2>
+            <div class="card-header">
 
-            <p class="step-description">
-                Complete the final step to activate
-                your 20-hour access.
-            </p>
+                <div class="step-badge">
+                    ● STEP 3
+                </div>
 
+                <h2>
+                    Final Verification
+                </h2>
 
-            <!-- MOBILE 300x250 -->
-
-            <div class="ad-label">
-                Advertisement
-            </div>
-
-            <div class="banner-area mobile-banner">
-
-                <script>
-                    atOptions = {
-                        'key': 'aa9807b4c0cf8e3f15f60f04fe51e07c',
-                        'format': 'iframe',
-                        'height': 250,
-                        'width': 300,
-                        'params': {}
-                    };
-                </script>
-
-                <script
-                    type="text/javascript"
-                    src="https://www.highrevenueformat.com/aa9807b4c0cf8e3f15f60f04fe51e07c/invoke.js"
-                ></script>
+                <p>
+                    Complete the final confirmation
+                    to activate your 20-hour access.
+                </p>
 
             </div>
 
 
-            <!-- DESKTOP 728x90 -->
+            <div class="card-body">
 
-            <div class="banner-area desktop-banner">
-
-                <script>
-                    atOptions = {
-                        'key': '908cb1344d3bcfed7e51d3561555e135',
-                        'format': 'iframe',
-                        'height': 90,
-                        'width': 728,
-                        'params': {}
-                    };
-                </script>
-
-                <script
-                    type="text/javascript"
-                    src="https://www.highrevenueformat.com/908cb1344d3bcfed7e51d3561555e135/invoke.js"
-                ></script>
-
-            </div>
+                <div class="ad-label">
+                    Advertisement
+                </div>
 
 
-            <!-- FINAL SCROLL -->
+                <!-- MOBILE 300 x 250 -->
 
-            <div class="scroll-area">
-                Scroll to the bottom to unlock
-                the final verification.
-            </div>
+                <div class="banner-zone mobile-banner">
+
+                    <script>
+                        atOptions = {
+                            'key': 'aa9807b4c0cf8e3f15f60f04fe51e07c',
+                            'format': 'iframe',
+                            'height': 250,
+                            'width': 300,
+                            'params': {}
+                        };
+                    </script>
+
+                    <script
+                        src="https://www.highrevenueformat.com/aa9807b4c0cf8e3f15f60f04fe51e07c/invoke.js"
+                    ></script>
+
+                </div>
 
 
-            <!-- CONFIRMATION -->
+                <!-- DESKTOP 728 x 90 -->
 
-            <div class="confirmation">
+                <div class="banner-zone desktop-banner">
 
-                <input
-                    type="checkbox"
-                    id="confirmationCheck"
-                    disabled
-                    onchange="updateVerifyButton()"
+                    <script>
+                        atOptions = {
+                            'key': '908cb1344d3bcfed7e51d3561555e135',
+                            'format': 'iframe',
+                            'height': 90,
+                            'width': 728,
+                            'params': {}
+                        };
+                    </script>
+
+                    <script
+                        src="https://www.highrevenueformat.com/908cb1344d3bcfed7e51d3561555e135/invoke.js"
+                    ></script>
+
+                </div>
+
+
+                <div class="scroll-zone">
+                    Scroll to the bottom to unlock
+                    final verification.
+                </div>
+
+
+                <div
+                    id="requirement3"
+                    class="requirement"
                 >
+                    <span class="dot"></span>
 
-                <label for="confirmationCheck">
-                    I confirm that I am completing
-                    this verification process.
-                </label>
-
-            </div>
-
-
-            <!-- VERIFY -->
-
-            <button
-                id="verifyButton"
-                class="button"
-                disabled
-                onclick="completeVerification()"
-            >
-                Complete Verification
-            </button>
+                    <span>
+                        Final step unlocked.
+                    </span>
+                </div>
 
 
-            <!-- STATUS -->
+                <div class="confirmation">
 
-            <div
-                id="finalStatus"
-                class="status"
-            ></div>
+                    <input
+                        id="confirmationCheck"
+                        type="checkbox"
+                        disabled
+                        onchange="updateVerifyButton()"
+                    >
+
+                    <label for="confirmationCheck">
+                        I confirm that I have completed
+                        the verification steps shown above.
+                    </label>
+
+                </div>
 
 
-            <!-- TELEGRAM RETURN -->
-
-            <a
-                id="telegramButton"
-                class="telegram-button"
-                href="#"
-            >
                 <button
-                    type="button"
-                    class="button"
+                    id="verifyButton"
+                    class="primary-button"
+                    disabled
+                    onclick="completeVerification()"
                 >
-                    🚀 Continue to Telegram
+                    ✅ Verify & Continue
                 </button>
-            </a>
 
 
-            <div class="small">
-                Verification access duration: 20 hours.
+                <div
+                    id="finalStatus"
+                    class="status"
+                ></div>
+
+
+                <a
+                    id="telegramButton"
+                    class="telegram-return"
+                    href="#"
+                >
+                    <button
+                        type="button"
+                        class="primary-button"
+                    >
+                        🚀 Continue to Telegram
+                    </button>
+                </a>
+
+
+                <div class="footer">
+                    Verification access duration:
+                    20 hours.
+                </div>
+
             </div>
 
         </div>
+
     </section>
 
 </div>
@@ -547,7 +873,7 @@
 <script>
 
     // =====================================================
-    // CONFIGURATION
+    // CONFIG
     // =====================================================
 
     const API_URL =
@@ -555,6 +881,25 @@
 
     const BOT_USERNAME =
         "freemoviesHD28_bot";
+
+
+    // =====================================================
+    // SMARTLINK
+    // =====================================================
+
+    /*
+     * IMPORTANT:
+     * Paste your Adsterra Smartlink URL between
+     * the quotation marks below.
+     */
+
+    const SMARTLINK_URL =
+        "https://www.profitableratecpmnetwork.com/vz90h3rr?key=4444021195dacac46b67bc9e7b3216fa";
+
+
+    document.getElementById(
+        "smartlinkButton"
+    ).href = SMARTLINK_URL;
 
 
     // =====================================================
@@ -579,12 +924,15 @@
 
     let currentStep = 1;
 
-    let step1BottomReached = false;
-    let step2BottomReached = false;
-    let step3BottomReached = false;
+    let step1Bottom = false;
+    let step2Bottom = false;
+    let step3Bottom = false;
 
     let step1TimerDone = false;
     let step2TimerDone = false;
+
+    let step1TimerStarted = false;
+    let step2TimerStarted = false;
 
 
     // =====================================================
@@ -598,17 +946,41 @@
                 "progressBar"
             );
 
+        const text =
+            document.getElementById(
+                "progressText"
+            );
+
+        const percent =
+            document.getElementById(
+                "progressPercent"
+            );
+
+
         if (step === 1) {
+
             bar.style.width = "33.33%";
+            text.textContent = "Step 1 of 3";
+            percent.textContent = "33%";
+
         }
 
         if (step === 2) {
+
             bar.style.width = "66.66%";
+            text.textContent = "Step 2 of 3";
+            percent.textContent = "66%";
+
         }
 
         if (step === 3) {
+
             bar.style.width = "100%";
+            text.textContent = "Step 3 of 3";
+            percent.textContent = "100%";
+
         }
+
     }
 
 
@@ -620,24 +992,22 @@
 
         document
             .querySelectorAll(".step")
-            .forEach(section => {
+            .forEach(element => {
 
-                section.classList.remove(
+                element.classList.remove(
                     "active"
                 );
 
             });
 
 
-        const selectedStep =
-            document.getElementById(
+        document
+            .getElementById(
                 "step" + step
+            )
+            .classList.add(
+                "active"
             );
-
-
-        selectedStep.classList.add(
-            "active"
-        );
 
 
         currentStep = step;
@@ -664,10 +1034,11 @@
 
     function startStep1Timer() {
 
-        if (step1TimerDone) {
+        if (step1TimerStarted) {
             return;
         }
 
+        step1TimerStarted = true;
 
         let seconds = 10;
 
@@ -693,6 +1064,7 @@
                         `Please wait ${seconds} seconds...`;
 
                     return;
+
                 }
 
 
@@ -702,31 +1074,39 @@
 
 
                 timer.className =
-                    "timer success";
+                    "timer done";
 
                 timer.textContent =
-                    "✅ Step completed";
+                    "✓ Step completed";
+
+
+                const requirement =
+                    document.getElementById(
+                        "requirement1"
+                    );
+
+                requirement.classList.add(
+                    "done"
+                );
 
 
                 updateStep1Button();
 
             }, 1000);
+
     }
 
 
     function updateStep1Button() {
 
-        const button =
-            document.getElementById(
-                "continue1"
-            );
-
-
-        button.disabled =
+        document.getElementById(
+            "continue1"
+        ).disabled =
             !(
-                step1BottomReached &&
+                step1Bottom &&
                 step1TimerDone
             );
+
     }
 
 
@@ -736,10 +1116,11 @@
 
     function startStep2Timer() {
 
-        if (step2TimerDone) {
+        if (step2TimerStarted) {
             return;
         }
 
+        step2TimerStarted = true;
 
         let seconds = 10;
 
@@ -765,6 +1146,7 @@
                         `Please wait ${seconds} seconds...`;
 
                     return;
+
                 }
 
 
@@ -774,31 +1156,39 @@
 
 
                 timer.className =
-                    "timer success";
+                    "timer done";
 
                 timer.textContent =
-                    "✅ Step completed";
+                    "✓ Step completed";
+
+
+                const requirement =
+                    document.getElementById(
+                        "requirement2"
+                    );
+
+                requirement.classList.add(
+                    "done"
+                );
 
 
                 updateStep2Button();
 
             }, 1000);
+
     }
 
 
     function updateStep2Button() {
 
-        const button =
-            document.getElementById(
-                "continue2"
-            );
-
-
-        button.disabled =
+        document.getElementById(
+            "continue2"
+        ).disabled =
             !(
-                step2BottomReached &&
+                step2Bottom &&
                 step2TimerDone
             );
+
     }
 
 
@@ -816,16 +1206,12 @@
                 document.documentElement.scrollHeight - 80;
 
 
-            // -----------------------------
-            // STEP 1
-            // -----------------------------
-
             if (
                 currentStep === 1 &&
                 nearBottom
             ) {
 
-                step1BottomReached = true;
+                step1Bottom = true;
 
                 startStep1Timer();
 
@@ -835,16 +1221,14 @@
             }
 
 
-            // -----------------------------
-            // STEP 2
-            // -----------------------------
-
             if (
                 currentStep === 2 &&
                 nearBottom
             ) {
 
-                step2BottomReached = true;
+                step2Bottom = true;
+
+                startStep2Timer();
 
                 updateStep2Button();
 
@@ -852,16 +1236,19 @@
             }
 
 
-            // -----------------------------
-            // STEP 3
-            // -----------------------------
-
             if (
                 currentStep === 3 &&
                 nearBottom
             ) {
 
-                step3BottomReached = true;
+                step3Bottom = true;
+
+
+                document.getElementById(
+                    "requirement3"
+                ).classList.add(
+                    "done"
+                );
 
 
                 document.getElementById(
@@ -896,14 +1283,15 @@
 
         button.disabled =
             !(
-                step3BottomReached &&
+                step3Bottom &&
                 check.checked
             );
+
     }
 
 
     // =====================================================
-    // VERIFICATION API
+    // COMPLETE VERIFICATION
     // =====================================================
 
     async function completeVerification() {
@@ -942,7 +1330,7 @@
             "status";
 
         status.textContent =
-            "Verifying...";
+            "Verifying your access...";
 
 
         try {
@@ -975,6 +1363,7 @@
                     data.detail ||
                     "Verification failed."
                 );
+
             }
 
 
@@ -1024,7 +1413,6 @@
     }
 
 </script>
-
 
 </body>
 </html>
