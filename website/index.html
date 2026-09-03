@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="color-scheme" content="dark">
     <title>Secure Verification</title>
 
     <style>
@@ -17,22 +17,17 @@
 
         body {
             margin: 0;
+            min-height: 100vh;
+            font-family: Inter, Arial, sans-serif;
             background:
-                radial-gradient(
-                    circle at top,
-                    #182333 0%,
-                    #0c1016 45%,
-                    #090c11 100%
-                );
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
+                radial-gradient(circle at top, #152536 0, #0a0f15 42%, #06090d 100%);
+            color: #eef5fb;
         }
 
         .page {
-            width: 92%;
-            max-width: 760px;
+            width: min(820px, calc(100% - 24px));
             margin: 0 auto;
-            padding: 30px 0 70px;
+            padding: 28px 0 40px;
         }
 
         .brand {
@@ -40,82 +35,59 @@
             margin-bottom: 22px;
         }
 
-        .shield {
-            width: 68px;
-            height: 68px;
-            margin: 0 auto 16px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 20px;
-
-            background: linear-gradient(
-                145deg,
-                #24384e,
-                #151d28
-            );
-
-            font-size: 34px;
-
-            box-shadow:
-                0 15px 40px rgba(0, 0, 0, 0.35);
+        .brand-mark {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 12px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #294258;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #152535, #0c141d);
+            box-shadow: 0 16px 42px rgba(0, 0, 0, 0.28);
+            font-size: 24px;
         }
 
         .brand h1 {
             margin: 0;
-            font-size: 30px;
+            font-size: 28px;
+            letter-spacing: -0.5px;
         }
 
         .brand p {
-            margin: 10px auto 0;
-            max-width: 540px;
-
-            color: #9da8b7;
-            line-height: 1.6;
-        }
-
-        .progress-card {
-            padding: 18px;
-            margin-bottom: 20px;
-
-            background: rgba(24, 30, 39, 0.92);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-        }
-
-        .progress-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            margin-bottom: 12px;
-
-            color: #a8b2bf;
+            margin: 8px auto 0;
+            max-width: 560px;
+            color: #8ea0b2;
+            line-height: 1.55;
             font-size: 14px;
         }
 
-        .progress-track {
-            width: 100%;
-            height: 7px;
+        .progress-wrap {
+            margin: 20px 0 18px;
+        }
 
-            background: #2a323e;
-            border-radius: 20px;
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 9px;
+            color: #8fa0b1;
+            font-size: 12px;
+        }
+
+        .progress-track {
+            height: 7px;
             overflow: hidden;
+            border-radius: 999px;
+            background: #121b24;
         }
 
         .progress-bar {
             width: 33.33%;
             height: 100%;
-
-            background: linear-gradient(
-                90deg,
-                #239ed9,
-                #59b9eb
-            );
-
-            transition: width 0.35s ease;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #2ba4df, #58c3f1);
+            transition: width 0.25s ease;
         }
 
         .step {
@@ -128,166 +100,126 @@
 
         .card {
             overflow: hidden;
-
-            background: rgba(24, 30, 39, 0.97);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-
-            border-radius: 22px;
-
-            box-shadow:
-                0 22px 60px rgba(0, 0, 0, 0.35);
+            border: 1px solid #1c2a37;
+            border-radius: 20px;
+            background: rgba(10, 16, 23, 0.9);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+            backdrop-filter: blur(10px);
         }
 
         .card-header {
             padding: 24px 24px 18px;
-
-            border-bottom: 1px solid
-                rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid #17232e;
         }
 
         .step-badge {
             display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            padding: 7px 11px;
-            margin-bottom: 13px;
-
-            background: #202a36;
-            color: #8ecdf0;
-
+            padding: 7px 10px;
             border-radius: 999px;
-
-            font-size: 12px;
-            font-weight: 700;
-
-            letter-spacing: 0.5px;
+            background: #12202d;
+            color: #70c8f2;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
         }
 
         .card-header h2 {
-            margin: 0;
-            font-size: 25px;
+            margin: 14px 0 8px;
+            font-size: 22px;
         }
 
         .card-header p {
-            margin: 9px 0 0;
-
-            color: #9da8b7;
-            line-height: 1.6;
+            margin: 0;
+            color: #91a1b0;
+            line-height: 1.55;
+            font-size: 14px;
         }
 
         .card-body {
-            padding: 24px;
+            padding: 22px 24px 24px;
         }
 
         .ad-label {
-            margin-bottom: 10px;
-
-            text-align: center;
-
-            color: #697585;
-            font-size: 11px;
-            font-weight: 700;
-
-            letter-spacing: 1.2px;
+            margin-bottom: 9px;
+            color: #5f7182;
             text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .native-ad,
+        .banner-zone {
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid #17232e;
+            border-radius: 14px;
+            background: #0b1117;
         }
 
         .native-ad {
-            min-height: 170px;
-            margin-bottom: 22px;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            overflow: hidden;
-
-            border-radius: 14px;
-            background: #10151c;
+            padding: 12px;
         }
 
         .banner-zone {
-            min-height: 120px;
-            margin-bottom: 22px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            overflow: hidden;
-
-            border-radius: 14px;
-            background: #10151c;
+            padding: 10px;
         }
 
         .desktop-banner {
             display: none;
         }
 
+        .mobile-banner {
+            display: flex;
+        }
+
         .offer-box {
-            margin: 20px 0;
-
-            padding: 17px;
-
-            background: #111821;
-            border: 1px solid #263240;
-
-            border-radius: 15px;
+            margin-top: 18px;
+            padding: 18px;
+            border: 1px solid #1c2b39;
+            border-radius: 16px;
+            background: linear-gradient(145deg, #101a24, #0b121a);
         }
 
         .offer-title {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 800;
         }
 
         .offer-text {
-            margin-top: 6px;
-
-            color: #8995a4;
-            font-size: 13px;
+            margin-top: 7px;
+            color: #8f9eac;
             line-height: 1.5;
+            font-size: 13px;
         }
 
         .offer-button {
             display: block;
-
-            margin-top: 13px;
-            padding: 12px 16px;
-
+            margin-top: 14px;
+            padding: 12px 15px;
             text-align: center;
             text-decoration: none;
-
-            border-radius: 10px;
-
-            background: #202d3c;
-            color: #d8efff;
-
+            border-radius: 11px;
+            background: #172838;
+            color: #ccecff;
+            border: 1px solid #29475f;
             font-weight: 700;
         }
 
         .scroll-zone {
-            min-height: 340px;
-
+            min-height: 330px;
+            margin-top: 18px;
+            padding: 28px;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            padding: 25px;
-            margin-top: 18px;
-
-            border-radius: 16px;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #10151c,
-                    #0d1218
-                );
-
-            color: #596675;
-
             text-align: center;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #10171f, #0c1218);
+            color: #657486;
             line-height: 1.7;
         }
 
@@ -295,26 +227,20 @@
             display: flex;
             align-items: center;
             gap: 10px;
-
-            margin-top: 17px;
+            margin-top: 16px;
             padding: 13px 15px;
-
             border-radius: 12px;
-
-            background: #121820;
-            color: #9ea9b7;
-
+            background: #101820;
+            color: #95a4b2;
             font-size: 13px;
         }
 
         .requirement .dot {
             width: 9px;
             height: 9px;
-
-            flex-shrink: 0;
-
+            flex: 0 0 9px;
             border-radius: 50%;
-            background: #556170;
+            background: #566473;
         }
 
         .requirement.done {
@@ -327,12 +253,9 @@
 
         .timer {
             min-height: 25px;
-
-            margin: 17px 0;
-
+            margin: 15px 0 16px;
             text-align: center;
-
-            color: #9faab8;
+            color: #94a3b1;
             font-size: 14px;
         }
 
@@ -342,27 +265,15 @@
 
         .primary-button {
             width: 100%;
-
-            padding: 15px 18px;
-
+            padding: 14px 18px;
             border: 0;
             border-radius: 12px;
-
-            background: linear-gradient(
-                135deg,
-                #269fd8,
-                #3288cf
-            );
-
-            color: white;
-
-            font-size: 16px;
-            font-weight: 700;
-
+            background: linear-gradient(135deg, #259ed9, #3288cf);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 800;
             cursor: pointer;
-
-            box-shadow:
-                0 9px 25px rgba(35, 158, 217, 0.18);
+            box-shadow: 0 10px 28px rgba(35, 158, 217, 0.18);
         }
 
         .primary-button:disabled {
@@ -373,38 +284,32 @@
 
         .confirmation {
             display: flex;
-            gap: 12px;
             align-items: flex-start;
-
+            gap: 12px;
             margin: 20px 0;
             padding: 16px;
-
-            background: #11171f;
             border-radius: 14px;
+            background: #10171e;
         }
 
         .confirmation input {
             width: 19px;
             height: 19px;
-
             margin-top: 2px;
         }
 
         .confirmation label {
-            color: #c0c8d2;
+            color: #bdc7d1;
             line-height: 1.5;
             font-size: 14px;
         }
 
         .status {
-            min-height: 25px;
-
-            margin-top: 17px;
-
+            min-height: 26px;
+            margin-top: 15px;
             text-align: center;
-
-            font-size: 14px;
             line-height: 1.5;
+            font-size: 14px;
         }
 
         .success {
@@ -417,34 +322,30 @@
 
         .telegram-return {
             display: none;
-
-            margin-top: 13px;
-
+            margin-top: 12px;
             text-decoration: none;
         }
 
         .footer {
-            margin-top: 22px;
-
+            margin-top: 20px;
             text-align: center;
-
-            color: #5f6a78;
+            color: #596878;
             font-size: 12px;
             line-height: 1.6;
         }
 
         @media (min-width: 700px) {
-
             .page {
-                max-width: 820px;
-            }
-
-            .desktop-banner {
-                display: flex;
+                width: min(820px, calc(100% - 40px));
+                padding-top: 38px;
             }
 
             .mobile-banner {
                 display: none;
+            }
+
+            .desktop-banner {
+                display: flex;
             }
 
             .scroll-zone {
@@ -455,304 +356,131 @@
 </head>
 
 <body>
-
 <div class="page">
 
-    <!-- BRAND -->
-
     <div class="brand">
-
-        <div class="shield">
-            🔐
-        </div>
-
-        <h1>
-            Secure Verification
-        </h1>
-
-        <p>
-            Complete the required steps to activate
-            your 20-hour access.
-        </p>
-
+        <div class="brand-mark">🔒</div>
+        <h1>Secure Verification</h1>
+        <p>Complete the short verification process below to activate your 20-hour access.</p>
     </div>
 
-
-    <!-- PROGRESS -->
-
-    <div class="progress-card">
-
-        <div class="progress-top">
-
-            <span id="progressText">
-                Step 1 of 3
-            </span>
-
-            <span id="progressPercent">
-                33%
-            </span>
-
+    <div class="progress-wrap">
+        <div class="progress-meta">
+            <span id="progressText">Step 1 of 3</span>
+            <span id="progressPercent">33%</span>
         </div>
-
         <div class="progress-track">
-
-            <div
-                id="progressBar"
-                class="progress-bar"
-            ></div>
-
+            <div id="progressBar" class="progress-bar"></div>
         </div>
-
     </div>
 
-
-    <!-- ================================================= -->
     <!-- STEP 1 -->
-    <!-- ================================================= -->
-
-    <section
-        id="step1"
-        class="step active"
-    >
-
+    <section id="step1" class="step active">
         <div class="card">
-
             <div class="card-header">
-
-                <div class="step-badge">
-                    ● STEP 1
-                </div>
-
-                <h2>
-                    Start Verification
-                </h2>
-
-                <p>
-                    Scroll through this step and complete
-                    the short waiting period.
-                </p>
-
+                <div class="step-badge">STEP 1</div>
+                <h2>Start Verification</h2>
+                <p>Scroll through this step and complete the short waiting period.</p>
             </div>
 
-
             <div class="card-body">
-
-                <div class="ad-label">
-                    Advertisement
-                </div>
-
-
-                <!-- NATIVE BANNER -->
+                <div class="ad-label">Advertisement</div>
 
                 <div class="native-ad">
-
-                    <script
-                        async="async"
-                        data-cfasync="false"
-                        src="https://pl31159836.profitableratecpmnetwork.com/29fcfc8fdc378dd5b0d6c27eee931468/invoke.js"
-                    ></script>
-
-                    <div
-                        id="container-29fcfc8fdc378dd5b0d6c27eee931468"
-                    ></div>
-
+                    <script async="async" data-cfasync="false"
+                        src="https://pl31159836.profitableratecpmnetwork.com/29fcfc8fdc378dd5b0d6c27eee931468/invoke.js"></script>
+                    <div id="container-29fcfc8fdc378dd5b0d6c27eee931468"></div>
                 </div>
-
 
                 <div class="scroll-zone">
-                    Scroll down to the bottom of
-                    this section.
+                    Scroll down to the bottom of this section.
                 </div>
 
-
-                <div
-                    id="requirement1"
-                    class="requirement"
-                >
+                <div id="requirement1" class="requirement">
                     <span class="dot"></span>
-
-                    <span>
-                        Reach the bottom and wait 10 seconds.
-                    </span>
+                    <span>Reach the bottom and wait 10 seconds.</span>
                 </div>
 
-
-                <div
-                    id="timer1"
-                    class="timer"
-                >
+                <div id="timer1" class="timer">
                     Waiting for you to reach the bottom...
                 </div>
 
-
-                <button
-                    id="continue1"
-                    class="primary-button"
-                    disabled
-                    onclick="goToStep(2)"
-                >
+                <button id="continue1"
+                        class="primary-button"
+                        disabled
+                        onclick="goToStep(2)">
                     Continue →
                 </button>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- ================================================= -->
     <!-- STEP 2 -->
-    <!-- ================================================= -->
-
-    <section
-        id="step2"
-        class="step"
-    >
-
+    <section id="step2" class="step">
         <div class="card">
-
             <div class="card-header">
-
-                <div class="step-badge">
-                    ● STEP 2
-                </div>
-
-                <h2>
-                    Continue Verification
-                </h2>
-
-                <p>
-                    Complete this step to move to
-                    the final verification.
-                </p>
-
+                <div class="step-badge">STEP 2</div>
+                <h2>Continue Verification</h2>
+                <p>Complete this step to move to the final verification.</p>
             </div>
 
-
             <div class="card-body">
+                <div class="ad-label">Advertisement</div>
 
-                <div class="ad-label">
-                    Advertisement
-                </div>
-
-
-                <!-- SOCIAL BAR -->
-
-                <script
-                    src="https://pl31159835.profitableratecpmnetwork.com/c0/12/86/c01286f12a5d61b86a2a98e4f21e0c62.js"
-                ></script>
-
-
-                <!-- SMARTLINK -->
+                <!-- Social Bar intentionally removed to prevent page-load popups -->
 
                 <div class="offer-box">
-
-                    <div class="offer-title">
-                        Sponsored Offer
-                    </div>
-
+                    <div class="offer-title">Sponsored Offer</div>
                     <div class="offer-text">
-                        Optional sponsored content.
-                        Opening it is not required
-                        to complete verification.
+                        Optional sponsored content. Opening it is not required to complete verification.
                     </div>
 
-                    <a
-                        id="smartlinkButton"
-                        class="offer-button"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a id="smartlinkButton"
+                       class="offer-button"
+                       href="#"
+                       target="_blank"
+                       rel="noopener noreferrer">
                         View Sponsored Offer
                     </a>
-
                 </div>
-
 
                 <div class="scroll-zone">
-                    Scroll down to the bottom of
-                    this section.
+                    Scroll down to the bottom of this section.
                 </div>
 
-
-                <div
-                    id="requirement2"
-                    class="requirement"
-                >
+                <div id="requirement2" class="requirement">
                     <span class="dot"></span>
-
-                    <span>
-                        Reach the bottom and wait 10 seconds.
-                    </span>
+                    <span>Reach the bottom and wait 10 seconds.</span>
                 </div>
 
-
-                <div
-                    id="timer2"
-                    class="timer"
-                >
+                <div id="timer2" class="timer">
                     Continue to the bottom...
                 </div>
 
-
-                <button
-                    id="continue2"
-                    class="primary-button"
-                    disabled
-                    onclick="goToStep(3)"
-                >
+                <button id="continue2"
+                        class="primary-button"
+                        disabled
+                        onclick="goToStep(3)">
                     Continue →
                 </button>
-
             </div>
-
         </div>
-
     </section>
 
-
-    <!-- ================================================= -->
     <!-- STEP 3 -->
-    <!-- ================================================= -->
-
-    <section
-        id="step3"
-        class="step"
-    >
-
+    <section id="step3" class="step">
         <div class="card">
-
             <div class="card-header">
-
-                <div class="step-badge">
-                    ● STEP 3
-                </div>
-
-                <h2>
-                    Final Verification
-                </h2>
-
-                <p>
-                    Complete the final confirmation
-                    to activate your 20-hour access.
-                </p>
-
+                <div class="step-badge">STEP 3</div>
+                <h2>Final Verification</h2>
+                <p>Complete the final confirmation to activate your 20-hour access.</p>
             </div>
 
-
             <div class="card-body">
+                <div class="ad-label">Advertisement</div>
 
-                <div class="ad-label">
-                    Advertisement
-                </div>
-
-
-                <!-- MOBILE 300 x 250 -->
-
+                <!-- MOBILE 300x250 -->
                 <div class="banner-zone mobile-banner">
-
                     <script>
                         atOptions = {
                             'key': 'aa9807b4c0cf8e3f15f60f04fe51e07c',
@@ -762,18 +490,11 @@
                             'params': {}
                         };
                     </script>
-
-                    <script
-                        src="https://www.highrevenueformat.com/aa9807b4c0cf8e3f15f60f04fe51e07c/invoke.js"
-                    ></script>
-
+                    <script src="https://www.highrevenueformat.com/aa9807b4c0cf8e3f15f60f04fe51e07c/invoke.js"></script>
                 </div>
 
-
-                <!-- DESKTOP 728 x 90 -->
-
+                <!-- DESKTOP 728x90 -->
                 <div class="banner-zone desktop-banner">
-
                     <script>
                         atOptions = {
                             'key': '908cb1344d3bcfed7e51d3561555e135',
@@ -783,144 +504,66 @@
                             'params': {}
                         };
                     </script>
-
-                    <script
-                        src="https://www.highrevenueformat.com/908cb1344d3bcfed7e51d3561555e135/invoke.js"
-                    ></script>
-
+                    <script src="https://www.highrevenueformat.com/908cb1344d3bcfed7e51d3561555e135/invoke.js"></script>
                 </div>
-
 
                 <div class="scroll-zone">
-                    Scroll to the bottom to unlock
-                    final verification.
+                    Scroll to the bottom to unlock final verification.
                 </div>
 
-
-                <div
-                    id="requirement3"
-                    class="requirement"
-                >
+                <div id="requirement3" class="requirement">
                     <span class="dot"></span>
-
-                    <span>
-                        Final step unlocked.
-                    </span>
+                    <span>Final step unlocked.</span>
                 </div>
-
 
                 <div class="confirmation">
-
-                    <input
-                        id="confirmationCheck"
-                        type="checkbox"
-                        disabled
-                        onchange="updateVerifyButton()"
-                    >
+                    <input id="confirmationCheck"
+                           type="checkbox"
+                           disabled
+                           onchange="updateVerifyButton()">
 
                     <label for="confirmationCheck">
-                        I confirm that I have completed
-                        the verification steps shown above.
+                        I confirm that I have completed the verification steps shown above.
                     </label>
-
                 </div>
 
-
-                <button
-                    id="verifyButton"
-                    class="primary-button"
-                    disabled
-                    onclick="completeVerification()"
-                >
+                <button id="verifyButton"
+                        class="primary-button"
+                        disabled
+                        onclick="completeVerification()">
                     ✅ Verify & Continue
                 </button>
 
+                <div id="finalStatus" class="status"></div>
 
-                <div
-                    id="finalStatus"
-                    class="status"
-                ></div>
-
-
-                <a
-                    id="telegramButton"
-                    class="telegram-return"
-                    href="#"
-                >
-                    <button
-                        type="button"
-                        class="primary-button"
-                    >
+                <a id="telegramButton"
+                   class="telegram-return"
+                   href="#">
+                    <button type="button" class="primary-button">
                         🚀 Continue to Telegram
                     </button>
                 </a>
 
-
                 <div class="footer">
-                    Verification access duration:
-                    20 hours.
+                    Verification access duration: 20 hours.
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
 </div>
 
-
 <script>
-
-    // =====================================================
-    // CONFIG
-    // =====================================================
-
-    const API_URL =
-        "https://telegram-platform.onrender.com";
-
-    const BOT_USERNAME =
-        "freemoviesHD28_bot";
-
-
-    // =====================================================
-    // SMARTLINK
-    // =====================================================
-
-    /*
-     * IMPORTANT:
-     * Paste your Adsterra Smartlink URL between
-     * the quotation marks below.
-     */
+    const API_URL = "https://telegram-platform.onrender.com";
+    const BOT_USERNAME = "freemoviesHD28_bot";
 
     const SMARTLINK_URL =
         "https://www.profitableratecpmnetwork.com/vz90h3rr?key=4444021195dacac46b67bc9e7b3216fa";
 
+    document.getElementById("smartlinkButton").href = SMARTLINK_URL;
 
-    document.getElementById(
-        "smartlinkButton"
-    ).href = SMARTLINK_URL;
-
-
-    // =====================================================
-    // TELEGRAM PARAMETERS
-    // =====================================================
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const token =
-        params.get("token");
-
-    const videoId =
-        params.get("video_id");
-
-
-    // =====================================================
-    // STATE
-    // =====================================================
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("token");
+    const videoId = params.get("video_id");
 
     let currentStep = 1;
 
@@ -934,485 +577,217 @@
     let step1TimerStarted = false;
     let step2TimerStarted = false;
 
-
-    // =====================================================
-    // PROGRESS
-    // =====================================================
-
     function updateProgress(step) {
-
-        const bar =
-            document.getElementById(
-                "progressBar"
-            );
-
-        const text =
-            document.getElementById(
-                "progressText"
-            );
-
-        const percent =
-            document.getElementById(
-                "progressPercent"
-            );
-
+        const bar = document.getElementById("progressBar");
+        const text = document.getElementById("progressText");
+        const percent = document.getElementById("progressPercent");
 
         if (step === 1) {
-
             bar.style.width = "33.33%";
             text.textContent = "Step 1 of 3";
             percent.textContent = "33%";
-
         }
 
         if (step === 2) {
-
             bar.style.width = "66.66%";
             text.textContent = "Step 2 of 3";
             percent.textContent = "66%";
-
         }
 
         if (step === 3) {
-
             bar.style.width = "100%";
             text.textContent = "Step 3 of 3";
             percent.textContent = "100%";
-
         }
-
     }
 
-
-    // =====================================================
-    // STEP NAVIGATION
-    // =====================================================
-
     function goToStep(step) {
+        document.querySelectorAll(".step").forEach(element => {
+            element.classList.remove("active");
+        });
 
-        document
-            .querySelectorAll(".step")
-            .forEach(element => {
-
-                element.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-        document
-            .getElementById(
-                "step" + step
-            )
-            .classList.add(
-                "active"
-            );
-
-
+        document.getElementById("step" + step).classList.add("active");
         currentStep = step;
-
         updateProgress(step);
-
 
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
 
-
         if (step === 2) {
             startStep2Timer();
         }
-
     }
 
-
-    // =====================================================
-    // STEP 1 TIMER
-    // =====================================================
-
     function startStep1Timer() {
-
         if (step1TimerStarted) {
             return;
         }
 
         step1TimerStarted = true;
-
         let seconds = 10;
 
-        const timer =
-            document.getElementById(
-                "timer1"
-            );
+        const timer = document.getElementById("timer1");
+        timer.textContent = `Please wait ${seconds} seconds...`;
 
+        const interval = setInterval(() => {
+            seconds--;
 
-        timer.textContent =
-            `Please wait ${seconds} seconds...`;
+            if (seconds > 0) {
+                timer.textContent = `Please wait ${seconds} seconds...`;
+                return;
+            }
 
+            clearInterval(interval);
 
-        const interval =
-            setInterval(() => {
+            step1TimerDone = true;
+            timer.className = "timer done";
+            timer.textContent = "✓ Step completed";
 
-                seconds--;
-
-
-                if (seconds > 0) {
-
-                    timer.textContent =
-                        `Please wait ${seconds} seconds...`;
-
-                    return;
-
-                }
-
-
-                clearInterval(interval);
-
-                step1TimerDone = true;
-
-
-                timer.className =
-                    "timer done";
-
-                timer.textContent =
-                    "✓ Step completed";
-
-
-                const requirement =
-                    document.getElementById(
-                        "requirement1"
-                    );
-
-                requirement.classList.add(
-                    "done"
-                );
-
-
-                updateStep1Button();
-
-            }, 1000);
-
+            document.getElementById("requirement1").classList.add("done");
+            updateStep1Button();
+        }, 1000);
     }
-
 
     function updateStep1Button() {
-
-        document.getElementById(
-            "continue1"
-        ).disabled =
-            !(
-                step1Bottom &&
-                step1TimerDone
-            );
-
+        document.getElementById("continue1").disabled =
+            !(step1Bottom && step1TimerDone);
     }
 
-
-    // =====================================================
-    // STEP 2 TIMER
-    // =====================================================
-
     function startStep2Timer() {
-
         if (step2TimerStarted) {
             return;
         }
 
         step2TimerStarted = true;
-
         let seconds = 10;
 
-        const timer =
-            document.getElementById(
-                "timer2"
-            );
+        const timer = document.getElementById("timer2");
+        timer.textContent = `Please wait ${seconds} seconds...`;
 
+        const interval = setInterval(() => {
+            seconds--;
 
-        timer.textContent =
-            `Please wait ${seconds} seconds...`;
+            if (seconds > 0) {
+                timer.textContent = `Please wait ${seconds} seconds...`;
+                return;
+            }
 
+            clearInterval(interval);
 
-        const interval =
-            setInterval(() => {
+            step2TimerDone = true;
+            timer.className = "timer done";
+            timer.textContent = "✓ Step completed";
 
-                seconds--;
-
-
-                if (seconds > 0) {
-
-                    timer.textContent =
-                        `Please wait ${seconds} seconds...`;
-
-                    return;
-
-                }
-
-
-                clearInterval(interval);
-
-                step2TimerDone = true;
-
-
-                timer.className =
-                    "timer done";
-
-                timer.textContent =
-                    "✓ Step completed";
-
-
-                const requirement =
-                    document.getElementById(
-                        "requirement2"
-                    );
-
-                requirement.classList.add(
-                    "done"
-                );
-
-
-                updateStep2Button();
-
-            }, 1000);
-
+            document.getElementById("requirement2").classList.add("done");
+            updateStep2Button();
+        }, 1000);
     }
-
 
     function updateStep2Button() {
-
-        document.getElementById(
-            "continue2"
-        ).disabled =
-            !(
-                step2Bottom &&
-                step2TimerDone
-            );
-
+        document.getElementById("continue2").disabled =
+            !(step2Bottom && step2TimerDone);
     }
 
+    window.addEventListener("scroll", () => {
+        const nearBottom =
+            window.innerHeight +
+            window.scrollY >=
+            document.documentElement.scrollHeight - 80;
 
-    // =====================================================
-    // SCROLL DETECTION
-    // =====================================================
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            const nearBottom =
-                window.innerHeight +
-                window.scrollY >=
-                document.documentElement.scrollHeight - 80;
-
-
-            if (
-                currentStep === 1 &&
-                nearBottom
-            ) {
-
-                step1Bottom = true;
-
-                startStep1Timer();
-
-                updateStep1Button();
-
-                return;
-            }
-
-
-            if (
-                currentStep === 2 &&
-                nearBottom
-            ) {
-
-                step2Bottom = true;
-
-                startStep2Timer();
-
-                updateStep2Button();
-
-                return;
-            }
-
-
-            if (
-                currentStep === 3 &&
-                nearBottom
-            ) {
-
-                step3Bottom = true;
-
-
-                document.getElementById(
-                    "requirement3"
-                ).classList.add(
-                    "done"
-                );
-
-
-                document.getElementById(
-                    "confirmationCheck"
-                ).disabled = false;
-
-
-                updateVerifyButton();
-
-            }
-
-        }
-    );
-
-
-    // =====================================================
-    // FINAL CONFIRMATION
-    // =====================================================
-
-    function updateVerifyButton() {
-
-        const check =
-            document.getElementById(
-                "confirmationCheck"
-            );
-
-        const button =
-            document.getElementById(
-                "verifyButton"
-            );
-
-
-        button.disabled =
-            !(
-                step3Bottom &&
-                check.checked
-            );
-
-    }
-
-
-    // =====================================================
-    // COMPLETE VERIFICATION
-    // =====================================================
-
-    async function completeVerification() {
-
-        const button =
-            document.getElementById(
-                "verifyButton"
-            );
-
-        const status =
-            document.getElementById(
-                "finalStatus"
-            );
-
-        const telegramButton =
-            document.getElementById(
-                "telegramButton"
-            );
-
-
-        if (!token) {
-
-            status.className =
-                "status error";
-
-            status.textContent =
-                "❌ Invalid verification link.";
-
+        if (currentStep === 1 && nearBottom) {
+            step1Bottom = true;
+            startStep1Timer();
+            updateStep1Button();
             return;
         }
 
-
-        button.disabled = true;
-
-        status.className =
-            "status";
-
-        status.textContent =
-            "Verifying your access...";
-
-
-        try {
-
-            const response =
-                await fetch(
-                    `${API_URL}/verification/complete`,
-                    {
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body: JSON.stringify({
-                            token: token
-                        })
-                    }
-                );
-
-
-            const data =
-                await response.json();
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    data.detail ||
-                    "Verification failed."
-                );
-
-            }
-
-
-            status.className =
-                "status success";
-
-            status.textContent =
-                "✅ Verification successful! " +
-                "Your access is active for 20 hours.";
-
-
-            button.style.display =
-                "none";
-
-
-            if (videoId) {
-
-                telegramButton.href =
-                    `https://t.me/${BOT_USERNAME}` +
-                    `?start=video_${videoId}`;
-
-            } else {
-
-                telegramButton.href =
-                    `https://t.me/${BOT_USERNAME}`;
-
-            }
-
-
-            telegramButton.style.display =
-                "block";
-
-
-        } catch (error) {
-
-            status.className =
-                "status error";
-
-            status.textContent =
-                "❌ " + error.message;
-
-            button.disabled =
-                false;
-
+        if (currentStep === 2 && nearBottom) {
+            step2Bottom = true;
+            startStep2Timer();
+            updateStep2Button();
+            return;
         }
 
+        if (currentStep === 3 && nearBottom) {
+            step3Bottom = true;
+
+            document.getElementById("requirement3").classList.add("done");
+            document.getElementById("confirmationCheck").disabled = false;
+
+            updateVerifyButton();
+        }
+    });
+
+    function updateVerifyButton() {
+        const check = document.getElementById("confirmationCheck");
+        const button = document.getElementById("verifyButton");
+
+        button.disabled =
+            !(step3Bottom && check.checked);
     }
 
-</script>
+    async function completeVerification() {
+        const button = document.getElementById("verifyButton");
+        const status = document.getElementById("finalStatus");
+        const telegramButton = document.getElementById("telegramButton");
 
+        if (!token) {
+            status.className = "status error";
+            status.textContent = "Invalid verification link.";
+            return;
+        }
+
+        button.disabled = true;
+        status.className = "status";
+        status.textContent = "Verifying...";
+
+        try {
+            const response = await fetch(
+                `${API_URL}/verification/complete`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        token: token
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(
+                    data.detail || "Verification failed."
+                );
+            }
+
+            status.className = "status success";
+            status.textContent =
+                "✅ Verification successful! Your access is active for 20 hours.";
+
+            telegramButton.style.display = "block";
+
+            const startTarget = videoId
+                ? `video_${videoId}`
+                : "";
+
+            telegramButton.href =
+                `https://t.me/${BOT_USERNAME}` +
+                (startTarget ? `?start=${encodeURIComponent(startTarget)}` : "");
+
+        } catch (error) {
+            button.disabled = false;
+            status.className = "status error";
+            status.textContent =
+                error.message || "Verification failed. Please try again.";
+        }
+    }
+
+    updateProgress(1);
+</script>
 </body>
 </html>
