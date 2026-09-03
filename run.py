@@ -13,13 +13,20 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 
 async def main():
-    await bot.start(bot_token=BOT_TOKEN)
+
+    await bot.start(
+        bot_token=BOT_TOKEN
+    )
+
+    print("BOT IS ONLINE")
 
     server = uvicorn.Server(
         uvicorn.Config(
             app,
             host="0.0.0.0",
-            port=int(os.getenv("PORT", "8000")),
+            port=int(
+                os.getenv("PORT", "8000")
+            ),
         )
     )
 
