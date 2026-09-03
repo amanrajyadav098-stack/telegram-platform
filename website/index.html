@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Telegram Platform - Verification</title>
+    <title>Verification</title>
 
     <style>
         * {
@@ -17,90 +16,134 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: Arial, sans-serif;
             background: #0f1115;
-            color: white;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
         }
 
         .card {
             width: 90%;
             max-width: 420px;
-            padding: 35px 25px;
+            padding: 32px 24px;
             text-align: center;
             background: #181b22;
             border-radius: 18px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-        }
-
-        .icon {
-            font-size: 55px;
-            margin-bottom: 15px;
         }
 
         h1 {
             margin: 0 0 12px;
-            font-size: 27px;
         }
 
         p {
-            color: #aeb4c0;
-            line-height: 1.6;
+            color: #adb5bd;
+            line-height: 1.5;
         }
 
-        .verify-btn {
-            display: inline-block;
-            margin-top: 20px;
+        button {
+            border: 0;
             padding: 14px 28px;
+            margin-top: 18px;
             border-radius: 10px;
             background: #229ed9;
-            color: white;
-            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            border: none;
-            font-size: 16px;
         }
 
-        .verify-btn:hover {
-            opacity: 0.9;
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
         }
 
-        .note {
+        #status {
             margin-top: 20px;
-            font-size: 13px;
-            color: #777f8d;
+            min-height: 24px;
+        }
+
+        .success {
+            color: #45d483;
+        }
+
+        .error {
+            color: #ff6b6b;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
+<div class="card">
+    <div style="font-size: 52px;">🔐</div>
 
-        <div class="icon">🔐</div>
+    <h1>Verification Required</h1>
 
-        <h1>Verification Required</h1>
+    <p>
+        Complete verification to activate your 20-hour access.
+    </p>
 
-        <p>
-            Please complete verification to continue
-            accessing the available content.
-        </p>
+    <button id="verifyButton" onclick="completeVerification()">
+        Verify Now
+    </button>
 
-        <button class="verify-btn" onclick="startVerification()">
-            Verify Now
-        </button>
+    <div id="status"></div>
+</div>
 
-        <div class="note">
-            Verification access is temporary.
-        </div>
+<script>
+    const API_URL = "https://telegram-platform.onrender.com";
 
-    </div>
+    async function completeVerification() {
+        const button = document.getElementById("verifyButton");
+        const status = document.getElementById("status");
 
-    <script>
-        function startVerification() {
-            alert("Verification step started.");
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get("token");
+
+        if (!token) {
+            status.className = "error";
+            status.textContent = "Invalid verification link.";
+            button.disabled = true;
+            return;
         }
-    </script>
+
+        button.disabled = true;
+        status.className = "";
+        status.textContent = "Verifying...";
+
+        try {
+            const response = await fetch(
+                `${API_URL}/verification/complete`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        token: token
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    data.detail || "Verification failed."
+                );
+            }
+
+            status.className = "success";
+            status.textContent =
+                "✅ Verification successful! Your access is active for 20 hours.";
+
+            button.textContent = "✅ Verified";
+        } catch (error) {
+            status.className = "error";
+            status.textContent = "❌ " + error.message;
+            button.disabled = false;
+        }
+    }
+</script>
 
 </body>
 </html>
