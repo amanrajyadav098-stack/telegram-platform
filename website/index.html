@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -14,47 +15,154 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-family: Arial, sans-serif;
             background: #0f1115;
             color: #ffffff;
-            font-family: Arial, sans-serif;
         }
 
-        .card {
-            width: 90%;
-            max-width: 430px;
-            padding: 34px 25px;
+        .container {
+            width: 92%;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 25px 0 60px;
+        }
+
+        .header {
             text-align: center;
-            background: #181b22;
-            border-radius: 18px;
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            margin-bottom: 20px;
         }
 
-        .icon {
-            font-size: 55px;
-            margin-bottom: 15px;
+        .header-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
         }
 
-        h1 {
-            margin: 0 0 14px;
+        .header h1 {
+            margin: 0;
             font-size: 28px;
         }
 
-        p {
+        .header p {
             color: #adb5bd;
             line-height: 1.6;
         }
 
-        button {
-            border: 0;
-            padding: 14px 28px;
+        .progress {
+            width: 100%;
+            height: 8px;
+            margin-bottom: 24px;
+            background: #292e37;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 33.33%;
+            height: 100%;
+            background: #229ed9;
+            transition: width 0.3s ease;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        .card {
+            background: #181c23;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.35);
+        }
+
+        .step-title {
+            margin: 0;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .step-description {
+            text-align: center;
+            color: #adb5bd;
+            line-height: 1.6;
+        }
+
+        .ad-label {
+            margin: 24px 0 10px;
+            text-align: center;
+            color: #737c89;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .native-ad {
+            width: 100%;
+            min-height: 170px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .banner-area {
+            width: 100%;
+            min-height: 120px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .mobile-banner {
+            display: block;
+        }
+
+        .desktop-banner {
+            display: none;
+        }
+
+        .scroll-area {
+            min-height: 380px;
             margin-top: 20px;
-            border-radius: 10px;
+            padding: 24px;
+            border-radius: 14px;
+            background: #11141a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.7;
+            color: #656e7b;
+        }
+
+        .timer {
+            min-height: 24px;
+            margin: 18px 0;
+            text-align: center;
+            color: #adb5bd;
+        }
+
+        .timer.success {
+            color: #45d483;
+        }
+
+        .button {
+            width: 100%;
+            padding: 15px 20px;
+            border: 0;
+            border-radius: 11px;
             background: #229ed9;
             color: #ffffff;
             font-size: 16px;
@@ -62,14 +170,36 @@
             cursor: pointer;
         }
 
-        button:disabled {
-            opacity: 0.6;
+        .button:disabled {
+            opacity: 0.45;
             cursor: not-allowed;
         }
 
-        #status {
-            margin-top: 20px;
-            min-height: 25px;
+        .confirmation {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 0;
+            padding: 16px;
+            border-radius: 12px;
+            background: #11141a;
+        }
+
+        .confirmation input {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .confirmation label {
+            color: #d9dde4;
+            line-height: 1.5;
+        }
+
+        .status {
+            min-height: 24px;
+            margin-top: 18px;
+            text-align: center;
             line-height: 1.5;
         }
 
@@ -81,51 +211,344 @@
             color: #ff6b6b;
         }
 
-        .continue-btn {
+        .telegram-button {
             display: none;
             text-decoration: none;
+            margin-top: 14px;
+        }
+
+        .small {
+            margin-top: 18px;
+            text-align: center;
+            color: #69717e;
+            font-size: 12px;
+        }
+
+        @media (min-width: 700px) {
+
+            .container {
+                max-width: 760px;
+            }
+
+            .mobile-banner {
+                display: none;
+            }
+
+            .desktop-banner {
+                display: flex;
+            }
+
+            .scroll-area {
+                min-height: 430px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
 
-    <div class="icon">🔐</div>
+    <!-- HEADER -->
 
-    <h1 id="title">
-        Verification Required
-    </h1>
+    <header class="header">
+        <div class="header-icon">🔐</div>
 
-    <p id="description">
-        Complete verification to activate your
-        20-hour access.
-    </p>
+        <h1>Verification Required</h1>
 
-    <button
-        id="verifyButton"
-        onclick="completeVerification()"
+        <p>
+            Complete all verification steps to activate
+            your 20-hour access.
+        </p>
+    </header>
+
+
+    <!-- PROGRESS -->
+
+    <div class="progress">
+        <div
+            id="progressBar"
+            class="progress-bar"
+        ></div>
+    </div>
+
+
+    <!-- ================================================= -->
+    <!-- STEP 1 -->
+    <!-- ================================================= -->
+
+    <section
+        id="step1"
+        class="step active"
     >
-        Verify Now
-    </button>
+        <div class="card">
 
-    <a
-        id="continueButton"
-        class="continue-btn"
-        href="#"
+            <h2 class="step-title">
+                Step 1
+            </h2>
+
+            <p class="step-description">
+                Scroll to the bottom and complete the
+                waiting period.
+            </p>
+
+
+            <!-- NATIVE BANNER -->
+
+            <div class="ad-label">
+                Advertisement
+            </div>
+
+            <div class="native-ad">
+
+                <script
+                    async="async"
+                    data-cfasync="false"
+                    src="https://pl31159836.profitableratecpmnetwork.com/29fcfc8fdc378dd5b0d6c27eee931468/invoke.js"
+                ></script>
+
+                <div
+                    id="container-29fcfc8fdc378dd5b0d6c27eee931468"
+                ></div>
+
+            </div>
+
+
+            <!-- SCROLL AREA -->
+
+            <div class="scroll-area">
+                Scroll to the bottom of this section
+                to unlock Continue.
+            </div>
+
+
+            <div
+                id="timer1"
+                class="timer"
+            >
+                Scroll to the bottom to start.
+            </div>
+
+
+            <button
+                id="continue1"
+                class="button"
+                disabled
+                onclick="goToStep(2)"
+            >
+                Continue
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- STEP 2 -->
+    <!-- ================================================= -->
+
+    <section
+        id="step2"
+        class="step"
     >
-        <button type="button">
-            🚀 Continue to Telegram
-        </button>
-    </a>
+        <div class="card">
 
-    <div id="status"></div>
+            <h2 class="step-title">
+                Step 2
+            </h2>
+
+            <p class="step-description">
+                Continue after reaching the bottom
+                and waiting 10 seconds.
+            </p>
+
+
+            <!-- SOCIAL BAR -->
+
+            <div class="ad-label">
+                Advertisement
+            </div>
+
+            <script
+                src="https://pl31159835.profitableratecpmnetwork.com/c0/12/86/c01286f12a5d61b86a2a98e4f21e0c62.js"
+            ></script>
+
+
+            <!-- SCROLL AREA -->
+
+            <div class="scroll-area">
+                Scroll to the bottom of this section
+                to unlock Continue.
+            </div>
+
+
+            <div
+                id="timer2"
+                class="timer"
+            >
+                Please wait...
+            </div>
+
+
+            <button
+                id="continue2"
+                class="button"
+                disabled
+                onclick="goToStep(3)"
+            >
+                Continue
+            </button>
+
+        </div>
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- STEP 3 -->
+    <!-- ================================================= -->
+
+    <section
+        id="step3"
+        class="step"
+    >
+        <div class="card">
+
+            <h2 class="step-title">
+                Final Verification
+            </h2>
+
+            <p class="step-description">
+                Complete the final step to activate
+                your 20-hour access.
+            </p>
+
+
+            <!-- MOBILE 300x250 -->
+
+            <div class="ad-label">
+                Advertisement
+            </div>
+
+            <div class="banner-area mobile-banner">
+
+                <script>
+                    atOptions = {
+                        'key': 'aa9807b4c0cf8e3f15f60f04fe51e07c',
+                        'format': 'iframe',
+                        'height': 250,
+                        'width': 300,
+                        'params': {}
+                    };
+                </script>
+
+                <script
+                    type="text/javascript"
+                    src="https://www.highrevenueformat.com/aa9807b4c0cf8e3f15f60f04fe51e07c/invoke.js"
+                ></script>
+
+            </div>
+
+
+            <!-- DESKTOP 728x90 -->
+
+            <div class="banner-area desktop-banner">
+
+                <script>
+                    atOptions = {
+                        'key': '908cb1344d3bcfed7e51d3561555e135',
+                        'format': 'iframe',
+                        'height': 90,
+                        'width': 728,
+                        'params': {}
+                    };
+                </script>
+
+                <script
+                    type="text/javascript"
+                    src="https://www.highrevenueformat.com/908cb1344d3bcfed7e51d3561555e135/invoke.js"
+                ></script>
+
+            </div>
+
+
+            <!-- FINAL SCROLL -->
+
+            <div class="scroll-area">
+                Scroll to the bottom to unlock
+                the final verification.
+            </div>
+
+
+            <!-- CONFIRMATION -->
+
+            <div class="confirmation">
+
+                <input
+                    type="checkbox"
+                    id="confirmationCheck"
+                    disabled
+                    onchange="updateVerifyButton()"
+                >
+
+                <label for="confirmationCheck">
+                    I confirm that I am completing
+                    this verification process.
+                </label>
+
+            </div>
+
+
+            <!-- VERIFY -->
+
+            <button
+                id="verifyButton"
+                class="button"
+                disabled
+                onclick="completeVerification()"
+            >
+                Complete Verification
+            </button>
+
+
+            <!-- STATUS -->
+
+            <div
+                id="finalStatus"
+                class="status"
+            ></div>
+
+
+            <!-- TELEGRAM RETURN -->
+
+            <a
+                id="telegramButton"
+                class="telegram-button"
+                href="#"
+            >
+                <button
+                    type="button"
+                    class="button"
+                >
+                    🚀 Continue to Telegram
+                </button>
+            </a>
+
+
+            <div class="small">
+                Verification access duration: 20 hours.
+            </div>
+
+        </div>
+    </section>
 
 </div>
 
 
 <script>
+
+    // =====================================================
+    // CONFIGURATION
+    // =====================================================
 
     const API_URL =
         "https://telegram-platform.onrender.com";
@@ -134,53 +557,389 @@
         "freemoviesHD28_bot";
 
 
-    async function completeVerification() {
+    // =====================================================
+    // TELEGRAM PARAMETERS
+    // =====================================================
 
-        const verifyButton =
-            document.getElementById("verifyButton");
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-        const continueButton =
-            document.getElementById("continueButton");
+    const token =
+        params.get("token");
 
-        const title =
-            document.getElementById("title");
-
-        const description =
-            document.getElementById("description");
-
-        const status =
-            document.getElementById("status");
+    const videoId =
+        params.get("video_id");
 
 
-        const params =
-            new URLSearchParams(
-                window.location.search
+    // =====================================================
+    // STATE
+    // =====================================================
+
+    let currentStep = 1;
+
+    let step1BottomReached = false;
+    let step2BottomReached = false;
+    let step3BottomReached = false;
+
+    let step1TimerDone = false;
+    let step2TimerDone = false;
+
+
+    // =====================================================
+    // PROGRESS
+    // =====================================================
+
+    function updateProgress(step) {
+
+        const bar =
+            document.getElementById(
+                "progressBar"
+            );
+
+        if (step === 1) {
+            bar.style.width = "33.33%";
+        }
+
+        if (step === 2) {
+            bar.style.width = "66.66%";
+        }
+
+        if (step === 3) {
+            bar.style.width = "100%";
+        }
+    }
+
+
+    // =====================================================
+    // STEP NAVIGATION
+    // =====================================================
+
+    function goToStep(step) {
+
+        document
+            .querySelectorAll(".step")
+            .forEach(section => {
+
+                section.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+        const selectedStep =
+            document.getElementById(
+                "step" + step
             );
 
 
-        const token =
-            params.get("token");
+        selectedStep.classList.add(
+            "active"
+        );
 
-        const videoId =
-            params.get("video_id");
+
+        currentStep = step;
+
+        updateProgress(step);
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+
+        if (step === 2) {
+            startStep2Timer();
+        }
+
+    }
+
+
+    // =====================================================
+    // STEP 1 TIMER
+    // =====================================================
+
+    function startStep1Timer() {
+
+        if (step1TimerDone) {
+            return;
+        }
+
+
+        let seconds = 10;
+
+        const timer =
+            document.getElementById(
+                "timer1"
+            );
+
+
+        timer.textContent =
+            `Please wait ${seconds} seconds...`;
+
+
+        const interval =
+            setInterval(() => {
+
+                seconds--;
+
+
+                if (seconds > 0) {
+
+                    timer.textContent =
+                        `Please wait ${seconds} seconds...`;
+
+                    return;
+                }
+
+
+                clearInterval(interval);
+
+                step1TimerDone = true;
+
+
+                timer.className =
+                    "timer success";
+
+                timer.textContent =
+                    "✅ Step completed";
+
+
+                updateStep1Button();
+
+            }, 1000);
+    }
+
+
+    function updateStep1Button() {
+
+        const button =
+            document.getElementById(
+                "continue1"
+            );
+
+
+        button.disabled =
+            !(
+                step1BottomReached &&
+                step1TimerDone
+            );
+    }
+
+
+    // =====================================================
+    // STEP 2 TIMER
+    // =====================================================
+
+    function startStep2Timer() {
+
+        if (step2TimerDone) {
+            return;
+        }
+
+
+        let seconds = 10;
+
+        const timer =
+            document.getElementById(
+                "timer2"
+            );
+
+
+        timer.textContent =
+            `Please wait ${seconds} seconds...`;
+
+
+        const interval =
+            setInterval(() => {
+
+                seconds--;
+
+
+                if (seconds > 0) {
+
+                    timer.textContent =
+                        `Please wait ${seconds} seconds...`;
+
+                    return;
+                }
+
+
+                clearInterval(interval);
+
+                step2TimerDone = true;
+
+
+                timer.className =
+                    "timer success";
+
+                timer.textContent =
+                    "✅ Step completed";
+
+
+                updateStep2Button();
+
+            }, 1000);
+    }
+
+
+    function updateStep2Button() {
+
+        const button =
+            document.getElementById(
+                "continue2"
+            );
+
+
+        button.disabled =
+            !(
+                step2BottomReached &&
+                step2TimerDone
+            );
+    }
+
+
+    // =====================================================
+    // SCROLL DETECTION
+    // =====================================================
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const nearBottom =
+                window.innerHeight +
+                window.scrollY >=
+                document.documentElement.scrollHeight - 80;
+
+
+            // -----------------------------
+            // STEP 1
+            // -----------------------------
+
+            if (
+                currentStep === 1 &&
+                nearBottom
+            ) {
+
+                step1BottomReached = true;
+
+                startStep1Timer();
+
+                updateStep1Button();
+
+                return;
+            }
+
+
+            // -----------------------------
+            // STEP 2
+            // -----------------------------
+
+            if (
+                currentStep === 2 &&
+                nearBottom
+            ) {
+
+                step2BottomReached = true;
+
+                updateStep2Button();
+
+                return;
+            }
+
+
+            // -----------------------------
+            // STEP 3
+            // -----------------------------
+
+            if (
+                currentStep === 3 &&
+                nearBottom
+            ) {
+
+                step3BottomReached = true;
+
+
+                document.getElementById(
+                    "confirmationCheck"
+                ).disabled = false;
+
+
+                updateVerifyButton();
+
+            }
+
+        }
+    );
+
+
+    // =====================================================
+    // FINAL CONFIRMATION
+    // =====================================================
+
+    function updateVerifyButton() {
+
+        const check =
+            document.getElementById(
+                "confirmationCheck"
+            );
+
+        const button =
+            document.getElementById(
+                "verifyButton"
+            );
+
+
+        button.disabled =
+            !(
+                step3BottomReached &&
+                check.checked
+            );
+    }
+
+
+    // =====================================================
+    // VERIFICATION API
+    // =====================================================
+
+    async function completeVerification() {
+
+        const button =
+            document.getElementById(
+                "verifyButton"
+            );
+
+        const status =
+            document.getElementById(
+                "finalStatus"
+            );
+
+        const telegramButton =
+            document.getElementById(
+                "telegramButton"
+            );
 
 
         if (!token) {
 
-            status.className = "error";
+            status.className =
+                "status error";
 
             status.textContent =
                 "❌ Invalid verification link.";
-
-            verifyButton.disabled = true;
 
             return;
         }
 
 
-        verifyButton.disabled = true;
+        button.disabled = true;
 
-        status.className = "";
+        status.className =
+            "status";
 
         status.textContent =
             "Verifying...";
@@ -219,62 +978,53 @@
             }
 
 
-            title.textContent =
-                "✅ Verification Complete";
+            status.className =
+                "status success";
 
-            description.textContent =
+            status.textContent =
+                "✅ Verification successful! " +
                 "Your access is active for 20 hours.";
 
 
-            status.className =
-                "success";
-
-            status.textContent =
-                "✅ Verification successful!";
-
-
-            verifyButton.style.display =
+            button.style.display =
                 "none";
 
 
-            /*
-             * Return user to Hakuma with
-             * the selected video/version.
-             */
-
             if (videoId) {
 
-                continueButton.href =
+                telegramButton.href =
                     `https://t.me/${BOT_USERNAME}` +
                     `?start=video_${videoId}`;
 
-                continueButton.style.display =
-                    "inline-block";
-
             } else {
 
-                continueButton.href =
+                telegramButton.href =
                     `https://t.me/${BOT_USERNAME}`;
 
-                continueButton.style.display =
-                    "inline-block";
             }
+
+
+            telegramButton.style.display =
+                "block";
+
 
         } catch (error) {
 
             status.className =
-                "error";
+                "status error";
 
             status.textContent =
                 "❌ " + error.message;
 
-            verifyButton.disabled =
+            button.disabled =
                 false;
+
         }
 
     }
 
 </script>
+
 
 </body>
 </html>
