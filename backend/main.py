@@ -5,6 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from backend.admin import router as admin_router
 from backend.verification import (
     create_verification,
     has_valid_access,
@@ -36,6 +37,13 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# =========================================================
+# ADMIN ROUTES
+# =========================================================
+
+app.include_router(admin_router)
 
 
 # =========================================================
