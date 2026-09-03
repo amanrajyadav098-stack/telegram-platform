@@ -464,6 +464,100 @@
            SMARTLINK
            ===================================================== */
 
+
+        .action-progress {
+            margin: 20px 0;
+            padding: 14px 15px;
+            border-radius: 13px;
+            background: #111820;
+            border: 1px solid #1d2b38;
+            text-align: center;
+        }
+
+        .progress-action {
+            margin: 20px 0;
+            padding: 14px 15px;
+            border-radius: 13px;
+            background: #111820;
+            border: 1px solid #1d2b38;
+            text-align: center;
+        }
+
+        .mini-track {
+            height: 8px;
+            width: 100%;
+            border-radius: 999px;
+            background: #202934;
+            overflow: hidden;
+        }
+
+        .mini-bar {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #279fd9, #61c8f4);
+            transition: width 0.03s linear;
+        }
+
+        .action-progress > div:last-child,
+        .progress-action > div:last-child {
+            margin-top: 9px;
+            color: #94a4b4;
+            font-size: 13px;
+        }
+
+        .hidden-after-progress {
+            display: none;
+        }
+
+        .hidden-after-progress.revealed {
+            display: block;
+        }
+
+
+        .hidden {
+            display: none !important;
+        }
+
+        .hidden-after-progress {
+            display: none;
+        }
+
+        .hidden-after-progress.revealed {
+            display: block;
+        }
+
+        .action-progress {
+            margin: 18px 0;
+            padding: 14px;
+            border: 1px solid #1d2b38;
+            border-radius: 13px;
+            background: #111820;
+            text-align: center;
+        }
+
+        .mini-track {
+            width: 100%;
+            height: 8px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #202934;
+        }
+
+        .mini-bar {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #279fd9, #61c8f4);
+            transition: width 0.02s linear;
+        }
+
+        .action-progress > div:last-child {
+            margin-top: 9px;
+            color: #94a4b4;
+            font-size: 13px;
+        }
+
         .offer-box {
 
             margin:
@@ -798,233 +892,47 @@
 
             min-height: 25px;
 
-            margin-top: 17px;
-
-            text-align: center;
-
-            font-size: 14px;
-
-            line-height: 1.5;
-
-        }
-
-
-        .success {
-
-            color: #55d58d;
-
-        }
-
-
-        .error {
-
-            color: #ff7070;
-
-        }
-
-
-        .telegram-return {
-
-            display: none;
-
-            margin-top: 13px;
-
-            text-decoration: none;
-
-        }
-
-
-        /* =====================================================
-           FOOTER
-           ===================================================== */
-
-        .footer {
-
-            margin-top: 22px;
-
-            text-align: center;
-
-            color: #5f6a78;
-
-            font-size: 12px;
-
-            line-height: 1.6;
-
-        }
-
-
-        /* =====================================================
-           MOBILE
-           ===================================================== */
-
-        @media (max-width: 699px) {
-
-            .page {
-
-                width: 94%;
-
-                padding:
-                    24px
-                    0
-                    55px;
-
-            }
-
-
-            .brand h1 {
-
-                font-size: 27px;
-
-            }
-
-
-            .card-header {
-
-                padding:
-                    22px
-                    20px
-                    17px;
-
-            }
-
-
-            .card-body {
-
-                padding: 20px;
-
-            }
-
-
-            .scroll-zone {
-
-                min-height: 330px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           DESKTOP
-           ===================================================== */
-
-        @media (min-width: 700px) {
-
-            .page {
-
-                max-width: 820px;
-
-            }
-
-
-            .scroll-zone {
-
-                min-height: 430px;
-
-            }
-
-        }
-
-
-        /* =====================================================
-           ACCESSIBILITY
-           ===================================================== */
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible {
-
-            outline:
-                2px
-                solid
-                #67c8f4;
-
-            outline-offset: 3px;
-
-        }
-
-
-    </style>
-
-</head>
-
-
-<body>
-
+            marg<body>
 
 <div class="page">
 
-
-    <!-- =====================================================
-         BRAND
-         ===================================================== -->
-
     <div class="brand">
-
-
-        <div class="shield">
-
-            🔐
-
-        </div>
-
+        <div class="shield">🔐</div>
 
         <h1>
-
             Secure Verification
-
         </h1>
 
-
         <p>
-
-            Complete the required steps to activate
-            your 20-hour access.
-
+            Complete the five steps below to activate
+            your 20-hour Telegram access.
         </p>
-
-
     </div>
 
 
-    <!-- =====================================================
-         PROGRESS
-         ===================================================== -->
-
     <div class="progress-card">
-
 
         <div class="progress-top">
 
-
             <span id="progressText">
-
-                Step 1 of 3
-
+                Step 1 of 5
             </span>
-
 
             <span id="progressPercent">
-
-                33%
-
+                20%
             </span>
-
 
         </div>
 
 
         <div class="progress-track">
 
-
             <div
                 id="progressBar"
                 class="progress-bar"
             ></div>
 
-
         </div>
-
 
     </div>
 
@@ -1038,97 +946,35 @@
         class="step active"
     >
 
-
         <div class="card">
-
 
             <div class="card-header">
 
-
                 <div class="step-badge">
-
                     ● STEP 1
-
                 </div>
 
-
                 <h2>
-
                     Start Verification
-
                 </h2>
 
-
                 <p>
-
-                    Scroll through this step and complete
-                    the short waiting period.
-
+                    Press Continue to start the progress check.
+                    After it reaches 100%, scroll to the bottom.
                 </p>
-
 
             </div>
 
 
             <div class="card-body">
 
-
                 <div class="ad-label">
-
                     Sponsored Content
-
                 </div>
 
-
-                <!--
-                    Automatic ad scripts are intentionally
-                    NOT loaded here.
-
-                    This keeps the verification page free
-                    from page-load popups and redirects.
-                -->
 
                 <div class="sponsor-placeholder">
-
                     Sponsored content
-
-                </div>
-
-
-                <div class="scroll-zone">
-
-                    Scroll down to the bottom of
-                    this section.
-
-                </div>
-
-
-                <div
-                    id="requirement1"
-                    class="requirement"
-                >
-
-
-                    <span class="dot"></span>
-
-
-                    <span>
-
-                        Reach the bottom and wait 10 seconds.
-
-                    </span>
-
-
-                </div>
-
-
-                <div
-                    id="timer1"
-                    class="timer"
-                >
-
-                    Waiting for you to reach the bottom...
-
                 </div>
 
 
@@ -1136,20 +982,75 @@
                     id="continue1"
                     class="primary-button"
                     type="button"
-                    disabled
-                    onclick="goToStep(2)"
+                    onclick="startStep1()"
                 >
-
                     Continue →
-
                 </button>
 
 
+                <div
+                    id="step1Progress"
+                    class="action-progress hidden"
+                >
+
+                    <div class="mini-track">
+
+                        <div
+                            id="miniBar1"
+                            class="mini-bar"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        id="miniText1"
+                    >
+                        Progress 0%
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="step1ScrollArea"
+                    class="hidden-after-progress"
+                >
+
+                    <div class="scroll-zone">
+                        Scroll down to the bottom of this section.
+                    </div>
+
+
+                    <div
+                        id="requirement1"
+                        class="requirement"
+                    >
+
+                        <span class="dot"></span>
+
+                        <span>
+                            Scroll to the bottom to unlock the next button.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        id="finish1"
+                        class="primary-button"
+                        type="button"
+                        disabled
+                        onclick="goToStep(2)"
+                    >
+                        Continue to Step 2 →
+                    </button>
+
+                </div>
+
             </div>
 
-
         </div>
-
 
     </section>
 
@@ -1163,95 +1064,65 @@
         class="step"
     >
 
-
         <div class="card">
-
 
             <div class="card-header">
 
-
                 <div class="step-badge">
-
                     ● STEP 2
-
                 </div>
 
-
                 <h2>
-
                     Continue Verification
-
                 </h2>
 
-
                 <p>
-
-                    Review the optional sponsored offer,
-                    then continue to the final step.
-
+                    Scroll to the bottom to unlock the next step.
                 </p>
-
 
             </div>
 
 
             <div class="card-body">
 
-
                 <div class="ad-label">
-
                     Sponsored Offer
-
                 </div>
 
 
                 <div class="offer-box">
 
-
                     <div class="offer-title">
-
                         Sponsored Offer
-
                     </div>
 
 
                     <div class="offer-text">
-
                         Optional sponsored content.
                         Opening it is not required
                         to complete verification.
-
                     </div>
 
 
-                    <a
+                    <button
                         id="smartlinkButton"
                         class="offer-button"
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
+                        type="button"
+                        onclick="openSponsoredOffer()"
                     >
-
                         View Sponsored Offer
-
-                    </a>
+                    </button>
 
 
                     <div class="offer-note">
-
                         Opens only when you press the button.
-
                     </div>
-
 
                 </div>
 
 
                 <div class="scroll-zone">
-
-                    Scroll down to the bottom of
-                    this section.
-
+                    Scroll down to the bottom of this section.
                 </div>
 
 
@@ -1260,48 +1131,28 @@
                     class="requirement"
                 >
 
-
                     <span class="dot"></span>
 
-
                     <span>
-
-                        Reach the bottom and wait 10 seconds.
-
+                        Scroll completed.
                     </span>
-
-
-                </div>
-
-
-                <div
-                    id="timer2"
-                    class="timer"
-                >
-
-                    Continue to the bottom...
 
                 </div>
 
 
                 <button
-                    id="continue2"
+                    id="finish2"
                     class="primary-button"
                     type="button"
                     disabled
                     onclick="goToStep(3)"
                 >
-
-                    Continue →
-
+                    Continue to Step 3 →
                 </button>
-
 
             </div>
 
-
         </div>
-
 
     </section>
 
@@ -1315,68 +1166,39 @@
         class="step"
     >
 
-
         <div class="card">
-
 
             <div class="card-header">
 
-
                 <div class="step-badge">
-
                     ● STEP 3
-
                 </div>
 
-
                 <h2>
-
-                    Final Verification
-
+                    Continue Verification
                 </h2>
 
-
                 <p>
-
-                    Complete the final confirmation
-                    to activate your 20-hour access.
-
+                    Scroll to the bottom to unlock the next step.
                 </p>
-
 
             </div>
 
 
             <div class="card-body">
 
-
                 <div class="ad-label">
-
                     Sponsored Content
-
                 </div>
 
 
-                <!--
-                    Automatic banner scripts are intentionally
-                    NOT loaded here.
-
-                    No 300x250, 728x90, Social Bar, or Native
-                    Banner script is loaded automatically.
-                -->
-
                 <div class="sponsor-placeholder">
-
                     Sponsored content
-
                 </div>
 
 
                 <div class="scroll-zone">
-
-                    Scroll to the bottom to unlock
-                    final verification.
-
+                    Scroll down to the bottom of this section.
                 </div>
 
 
@@ -1385,22 +1207,169 @@
                     class="requirement"
                 >
 
+                    <span class="dot"></span>
+
+                    <span>
+                        Scroll completed.
+                    </span>
+
+                </div>
+
+
+                <button
+                    id="finish3"
+                    class="primary-button"
+                    type="button"
+                    disabled
+                    onclick="goToStep(4)"
+                >
+                    Continue to Step 4 →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STEP 4
+         ===================================================== -->
+
+    <section
+        id="step4"
+        class="step"
+    >
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="step-badge">
+                    ● STEP 4
+                </div>
+
+                <h2>
+                    Final Review
+                </h2>
+
+                <p>
+                    Scroll to the bottom to unlock Step 5.
+                </p>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="ad-label">
+                    Sponsored Content
+                </div>
+
+
+                <div class="sponsor-placeholder">
+                    Sponsored content
+                </div>
+
+
+                <div class="scroll-zone">
+                    Scroll down to the bottom of this section.
+                </div>
+
+
+                <div
+                    id="requirement4"
+                    class="requirement"
+                >
 
                     <span class="dot"></span>
 
-
                     <span>
-
-                        Final step unlocked.
-
+                        Scroll completed.
                     </span>
 
+                </div>
+
+
+                <button
+                    id="finish4"
+                    class="primary-button"
+                    type="button"
+                    disabled
+                    onclick="goToStep(5)"
+                >
+                    Continue to Step 5 →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STEP 5
+         ===================================================== -->
+
+    <section
+        id="step5"
+        class="step"
+    >
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <div class="step-badge">
+                    ● STEP 5
+                </div>
+
+                <h2>
+                    Final Verification
+                </h2>
+
+                <p>
+                    Scroll to the bottom, confirm the checkbox,
+                    then activate your 20-hour access.
+                </p>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="ad-label">
+                    Sponsored Content
+                </div>
+
+
+                <div class="sponsor-placeholder">
+                    Sponsored content
+                </div>
+
+
+                <div class="scroll-zone">
+                    Scroll to the bottom to unlock final verification.
+                </div>
+
+
+                <div
+                    id="requirement5"
+                    class="requirement"
+                >
+
+                    <span class="dot"></span>
+
+                    <span>
+                        Final step unlocked.
+                    </span>
 
                 </div>
 
 
                 <div class="confirmation">
-
 
                     <input
                         id="confirmationCheck"
@@ -1410,13 +1379,14 @@
                     >
 
 
-                    <label for="confirmationCheck">
+                    <label
+                        for="confirmationCheck"
+                    >
 
                         I confirm that I have completed
                         the verification steps shown above.
 
                     </label>
-
 
                 </div>
 
@@ -1429,7 +1399,7 @@
                     onclick="completeVerification()"
                 >
 
-                    ✅ Verify & Continue
+                    ✅ Verify &amp; Continue
 
                 </button>
 
@@ -1446,7 +1416,6 @@
                     href="#"
                 >
 
-
                     <button
                         type="button"
                         class="primary-button"
@@ -1455,7 +1424,6 @@
                         🚀 Continue to Telegram
 
                     </button>
-
 
                 </a>
 
@@ -1467,26 +1435,20 @@
 
                 </div>
 
-
             </div>
-
 
         </div>
 
-
     </section>
-
 
 </div>
 
 
 <script>
 
-
     // =====================================================
     // CONFIG
     // =====================================================
-
 
     const API_URL =
         "https://telegram-platform.onrender.com";
@@ -1496,47 +1458,13 @@
         "freemoviesHD28_bot";
 
 
-    // =====================================================
-    // SMARTLINK
-    // =====================================================
-
-    /*
-        The Smartlink remains available as a normal link.
-
-        IMPORTANT:
-        It is NOT loaded as a script and is NOT opened
-        automatically.
-
-        It opens only after the user explicitly presses:
-        "View Sponsored Offer".
-    */
-
-
     const SMARTLINK_URL =
         "https://www.profitableratecpmnetwork.com/vz90h3rr?key=4444021195dacac46b67bc9e7b3216fa";
-
-
-    const smartlinkButton =
-        document.getElementById(
-            "smartlinkButton"
-        );
-
-
-    if (
-        smartlinkButton &&
-        SMARTLINK_URL
-    ) {
-
-        smartlinkButton.href =
-            SMARTLINK_URL;
-
-    }
 
 
     // =====================================================
     // TELEGRAM PARAMETERS
     // =====================================================
-
 
     const params =
         new URLSearchParams(
@@ -1556,110 +1484,51 @@
     // STATE
     // =====================================================
 
-
     let currentStep = 1;
 
+    let step1Started = false;
 
-    let step1Bottom = false;
+    let step1ProgressComplete = false;
 
+    let step1AtBottom = false;
 
-    let step2Bottom = false;
+    let step2AtBottom = false;
 
+    let step3AtBottom = false;
 
-    let step3Bottom = false;
+    let step4AtBottom = false;
 
-
-    let step1TimerDone = false;
-
-
-    let step2TimerDone = false;
-
-
-    let step1TimerStarted = false;
-
-
-    let step2TimerStarted = false;
+    let step5AtBottom = false;
 
 
     // =====================================================
     // PROGRESS
     // =====================================================
 
-
     function updateProgress(step) {
 
-
-        const bar =
-            document.getElementById(
-                "progressBar"
-            );
-
-
-        const text =
-            document.getElementById(
-                "progressText"
-            );
-
-
         const percent =
-            document.getElementById(
-                "progressPercent"
+            Math.round(
+                (step / 5) * 100
             );
 
 
-        if (step === 1) {
+        document.getElementById(
+            "progressBar"
+        ).style.width =
+            `${percent}%`;
 
 
-            bar.style.width =
-                "33.33%";
+        document.getElementById(
+            "progressText"
+        ).textContent =
+            `Step ${step} of 5`;
 
 
-            text.textContent =
-                "Step 1 of 3";
-
-
-            percent.textContent =
-                "33%";
-
-
-        }
-
-
-        if (step === 2) {
-
-
-            bar.style.width =
-                "66.66%";
-
-
-            text.textContent =
-                "Step 2 of 3";
-
-
-            percent.textContent =
-                "66%";
-
-
-        }
-
-
-        if (step === 3) {
-
-
-            bar.style.width =
-                "100%";
-
-
-            text.textContent =
-                "Step 3 of 3";
-
-
-            percent.textContent =
-                "100%";
-
-
-        }
-
+        document.getElementById(
+            "progressPercent"
+        ).textContent =
+            `${percent}%`;
 
     }
 
@@ -1668,14 +1537,10 @@
     // STEP NAVIGATION
     // =====================================================
 
-
     function goToStep(step) {
 
-
         document
-            .querySelectorAll(
-                ".step"
-            )
+            .querySelectorAll(".step")
             .forEach(
                 element => {
 
@@ -1689,7 +1554,7 @@
 
         const target =
             document.getElementById(
-                "step" + step
+                `step${step}`
             );
 
 
@@ -1722,112 +1587,24 @@
 
         });
 
-
     }
 
 
     // =====================================================
-    // STEP 1 TIMER
+    // STEP 1: CONTINUE -> 0 TO 100
     // =====================================================
 
+    function startStep1() {
 
-    function startStep1Timer() {
-
-
-        if (
-            step1TimerStarted
-        ) {
+        if (step1Started) {
 
             return;
 
         }
 
 
-        step1TimerStarted =
+        step1Started =
             true;
-
-
-        let seconds =
-            10;
-
-
-        const timer =
-            document.getElementById(
-                "timer1"
-            );
-
-
-        timer.textContent =
-            `Please wait ${seconds} seconds...`;
-
-
-        const interval =
-            setInterval(
-                () => {
-
-
-                    seconds--;
-
-
-                    if (
-                        seconds > 0
-                    ) {
-
-
-                        timer.textContent =
-                            `Please wait ${seconds} seconds...`;
-
-
-                        return;
-
-                    }
-
-
-                    clearInterval(
-                        interval
-                    );
-
-
-                    step1TimerDone =
-                        true;
-
-
-                    timer.className =
-                        "timer done";
-
-
-                    timer.textContent =
-                        "✓ Step completed";
-
-
-                    const requirement =
-                        document.getElementById(
-                            "requirement1"
-                        );
-
-
-                    requirement.classList.add(
-                        "done"
-                    );
-
-
-                    updateStep1Button();
-
-
-                },
-                1000
-            );
-
-
-    }
-
-
-    // =====================================================
-    // STEP 1 BUTTON
-    // =====================================================
-
-
-    function updateStep1Button() {
 
 
         const button =
@@ -1836,66 +1613,84 @@
             );
 
 
-        button.disabled =
-            !(
-                step1Bottom &&
-                step1TimerDone
+        const progressBox =
+            document.getElementById(
+                "step1Progress"
             );
 
 
-    }
+        const progressBar =
+            document.getElementById(
+                "miniBar1"
+            );
 
 
-    // =====================================================
-    // STEP 2 TIMER
-    // =====================================================
+        const progressText =
+            document.getElementById(
+                "miniText1"
+            );
 
 
-    function startStep2Timer() {
-
-
-        if (
-            step2TimerStarted
-        ) {
-
-            return;
-
-        }
-
-
-        step2TimerStarted =
+        button.disabled =
             true;
 
 
-        let seconds =
-            10;
+        progressBox.classList.remove(
+            "hidden"
+        );
 
 
-        const timer =
-            document.getElementById(
-                "timer2"
-            );
+        let value =
+            0;
 
 
-        timer.textContent =
-            `Please wait ${seconds} seconds...`;
+        progressText.textContent =
+            "Progress 0%";
+
+
+        progressBar.style.width =
+            "0%";
 
 
         const interval =
             setInterval(
                 () => {
 
-
-                    seconds--;
+                    value += 2;
 
 
                     if (
-                        seconds > 0
+                        value >= 100
                     ) {
 
+                        value =
+                            100;
 
-                        timer.textContent =
-                            `Please wait ${seconds} seconds...`;
+
+                        clearInterval(
+                            interval
+                        );
+
+
+                        progressBar.style.width =
+                            "100%";
+
+
+                        progressText.textContent =
+                            "✓ Progress 100%";
+
+
+                        step1ProgressComplete =
+                            true;
+
+
+                        document
+                            .getElementById(
+                                "step1ScrollArea"
+                            )
+                            .classList.add(
+                                "revealed"
+                            );
 
 
                         return;
@@ -1903,175 +1698,236 @@
                     }
 
 
-                    clearInterval(
-                        interval
-                    );
+                    progressBar.style.width =
+                        `${value}%`;
 
 
-                    step2TimerDone =
-                        true;
-
-
-                    timer.className =
-                        "timer done";
-
-
-                    timer.textContent =
-                        "✓ Step completed";
-
-
-                    const requirement =
-                        document.getElementById(
-                            "requirement2"
-                        );
-
-
-                    requirement.classList.add(
-                        "done"
-                    );
-
-
-                    updateStep2Button();
-
+                    progressText.textContent =
+                        `Progress ${value}%`;
 
                 },
-                1000
+                20
             );
-
 
     }
 
 
     // =====================================================
-    // STEP 2 BUTTON
+    // BOTTOM SCROLL HELPER
     // =====================================================
 
+    function atBottom() {
 
-    function updateStep2Button() {
-
-
-        const button =
-            document.getElementById(
-                "continue2"
-            );
-
-
-        button.disabled =
-            !(
-                step2Bottom &&
-                step2TimerDone
-            );
-
+        return (
+            window.innerHeight +
+            window.scrollY >=
+            document.documentElement.scrollHeight - 80
+        );
 
     }
 
 
     // =====================================================
-    // SCROLL DETECTION
+    // SCROLL EVENTS
     // =====================================================
-
 
     window.addEventListener(
         "scroll",
         () => {
 
+            if (!atBottom()) {
 
-            const nearBottom =
-                window.innerHeight +
-                window.scrollY >=
-                document.documentElement.scrollHeight - 80;
+                return;
 
+            }
+
+
+            // ---------------------------------------------
+            // STEP 1
+            // ---------------------------------------------
 
             if (
                 currentStep === 1 &&
-                nearBottom
+                step1ProgressComplete &&
+                !step1AtBottom
             ) {
 
-
-                step1Bottom =
+                step1AtBottom =
                     true;
 
 
-                startStep1Timer();
-
-
-                updateStep1Button();
-
-
-                return;
-
-            }
-
-
-            if (
-                currentStep === 2 &&
-                nearBottom
-            ) {
-
-
-                step2Bottom =
-                    true;
-
-
-                startStep2Timer();
-
-
-                updateStep2Button();
-
-
-                return;
-
-            }
-
-
-            if (
-                currentStep === 3 &&
-                nearBottom
-            ) {
-
-
-                step3Bottom =
-                    true;
-
-
-                const requirement =
-                    document.getElementById(
-                        "requirement3"
-                    );
-
-
-                requirement.classList.add(
+                document.getElementById(
+                    "requirement1"
+                ).classList.add(
                     "done"
                 );
 
 
-                const check =
-                    document.getElementById(
-                        "confirmationCheck"
-                    );
+                document.getElementById(
+                    "finish1"
+                ).disabled =
+                    false;
 
 
-                check.disabled =
+                return;
+
+            }
+
+
+            // ---------------------------------------------
+            // STEP 2
+            // ---------------------------------------------
+
+            if (
+                currentStep === 2 &&
+                !step2AtBottom
+            ) {
+
+                step2AtBottom =
+                    true;
+
+
+                document.getElementById(
+                    "requirement2"
+                ).classList.add(
+                    "done"
+                );
+
+
+                document.getElementById(
+                    "finish2"
+                ).disabled =
+                    false;
+
+
+                return;
+
+            }
+
+
+            // ---------------------------------------------
+            // STEP 3
+            // ---------------------------------------------
+
+            if (
+                currentStep === 3 &&
+                !step3AtBottom
+            ) {
+
+                step3AtBottom =
+                    true;
+
+
+                document.getElementById(
+                    "requirement3"
+                ).classList.add(
+                    "done"
+                );
+
+
+                document.getElementById(
+                    "finish3"
+                ).disabled =
+                    false;
+
+
+                return;
+
+            }
+
+
+            // ---------------------------------------------
+            // STEP 4
+            // ---------------------------------------------
+
+            if (
+                currentStep === 4 &&
+                !step4AtBottom
+            ) {
+
+                step4AtBottom =
+                    true;
+
+
+                document.getElementById(
+                    "requirement4"
+                ).classList.add(
+                    "done"
+                );
+
+
+                document.getElementById(
+                    "finish4"
+                ).disabled =
+                    false;
+
+
+                return;
+
+            }
+
+
+            // ---------------------------------------------
+            // STEP 5
+            // ---------------------------------------------
+
+            if (
+                currentStep === 5 &&
+                !step5AtBottom
+            ) {
+
+                step5AtBottom =
+                    true;
+
+
+                document.getElementById(
+                    "requirement5"
+                ).classList.add(
+                    "done"
+                );
+
+
+                document.getElementById(
+                    "confirmationCheck"
+                ).disabled =
                     false;
 
 
                 updateVerifyButton();
 
-
             }
-
 
         }
     );
 
 
     // =====================================================
-    // FINAL CHECKBOX
+    // SMARTLINK
     // =====================================================
 
+    function openSponsoredOffer() {
+
+        if (!SMARTLINK_URL) {
+
+            return;
+
+        }
+
+
+        window.open(
+            SMARTLINK_URL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }
+
+
+    // =====================================================
+    // VERIFY CHECKBOX
+    // =====================================================
 
     function updateVerifyButton() {
-
 
         const check =
             document.getElementById(
@@ -2087,21 +1943,18 @@
 
         button.disabled =
             !(
-                step3Bottom &&
+                step5AtBottom &&
                 check.checked
             );
-
 
     }
 
 
     // =====================================================
-    // COMPLETE VERIFICATION
+    // FINAL VERIFICATION
     // =====================================================
 
-
     async function completeVerification() {
-
 
         const button =
             document.getElementById(
@@ -2122,7 +1975,6 @@
 
 
         if (!token) {
-
 
             status.className =
                 "status error";
@@ -2150,7 +2002,6 @@
 
 
         try {
-
 
             const response =
                 await fetch(
@@ -2191,7 +2042,6 @@
                 !data.success
             ) {
 
-
                 throw new Error(
                     data.detail ||
                     "Verification failed."
@@ -2226,9 +2076,7 @@
                         : ""
                 );
 
-
         } catch (error) {
-
 
             button.disabled =
                 false;
@@ -2242,9 +2090,7 @@
                 error.message ||
                 "Verification failed. Please try again.";
 
-
         }
-
 
     }
 
@@ -2253,15 +2099,58 @@
     // INITIAL STATE
     // =====================================================
 
-
-    updateProgress(
-        1
-    );
+    updateProgress(1);
 
 
 </script>
 
-
 </body>
 
+ed."
+                );
+
+            }
+
+            status.className =
+                "status success";
+
+            status.textContent =
+                "✅ Verification successful! Your access is active for 20 hours.";
+
+            telegramButton.style.display =
+                "block";
+
+            const startTarget =
+                videoId
+                    ? `video_${videoId}`
+                    : "";
+
+            telegramButton.href =
+                `https://t.me/${BOT_USERNAME}` +
+                (
+                    startTarget
+                        ? `?start=${encodeURIComponent(startTarget)}`
+                        : ""
+                );
+
+        } catch (error) {
+
+            button.disabled =
+                false;
+
+            status.className =
+                "status error";
+
+            status.textContent =
+                error.message ||
+                "Verification failed. Please try again.";
+
+        }
+    }
+
+    updateProgress(1);
+
+</script>
+
+</body>
 </html>
